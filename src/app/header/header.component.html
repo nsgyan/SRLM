@@ -29,7 +29,7 @@
                     <i class="fa fa-indent fa-fw text-active"></i>
                 </a> -->
                 <a class="btn no-shadow navbar-btn g-px-0 m-t-10">
-                    <i class="fa fa-clock-o"></i> <small class=""><span id="date_header_time"></span><span id="clock"></span></small>
+                    <i class="fa fa-clock-o"></i> <small class=""><span id="date_header_time"> {{date   | date: 'EE, MMMM d, y, '}}</span><span id="clock">{{date   | date: "HH:mm:ss"}}</span></small>
                 </a>
             </div>
             <!-- / buttons -->

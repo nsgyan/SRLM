@@ -6,6 +6,7 @@ import { BanksComponent } from './system-configuration/banks/banks.component';
 import { DesignationComponent } from './system-configuration/designation/designation.component';
 import { LimitSettingComponent } from './system-configuration/limit-setting/limit-setting.component';
 import { OfficeComponent } from './system-configuration/office/office.component';
+import { OfficeModule } from './system-configuration/office/office.module';
 import { OfficerComponent } from './system-configuration/officer/officer.component';
 import { SchemeComponent } from './system-configuration/scheme/scheme.component';
 import { VendorServiceComponent } from './system-configuration/vendor-service/vendor-service.component';
@@ -13,15 +14,10 @@ import { VendorTypeComponent } from './system-configuration/vendor-type/vendor-t
 
 const routes: Routes = [
   { path: '', component: DashboardPageComponent },
-  { path: 'scheme', component: SchemeComponent },
-  { path: 'office', component: OfficeComponent },
-  { path: 'designation', component: DesignationComponent },
-  { path: 'officer', component: OfficerComponent },
-  { path: 'vendorType', component: VendorTypeComponent },
-  { path: 'vendorService', component: VendorServiceComponent },
-  { path: 'agencyComponent', component: AgencyComponentComponent },
-  { path: 'bank', component: BanksComponent },
-  { path: 'limitSetting',        component: LimitSettingComponent},
+  { path: 'system-configuration', 
+  loadChildren: () => import('./system-configuration/system-configuration-routing.module').then(m => m.SystemConfigurationRoutingModule) 
+},
+ 
 ];
 
 @NgModule({

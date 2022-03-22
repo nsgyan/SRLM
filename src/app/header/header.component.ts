@@ -8,11 +8,13 @@ import { DynamicDateService } from '../shared/dynamic-date.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  time$: Observable<any>;
- 
 
-  constructor(private dynamicDate: DynamicDateService) {
-    this.time$ = this.dynamicDate.getDate();
+  date:Date | undefined; 
+
+  constructor() {
+    setInterval(() => {
+      this.date = new Date()
+    }, 1000)
   }
   ngOnInit(): void {
   }
