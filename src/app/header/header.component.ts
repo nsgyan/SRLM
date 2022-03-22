@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DynamicDateService } from '../shared/dynamic-date.service';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor() { }
+  time$: Observable<any>;
  
+
+  constructor(private dynamicDate: DynamicDateService) {
+    this.time$ = this.dynamicDate.getDate();
+  }
   ngOnInit(): void {
   }
 
+ 
 }
