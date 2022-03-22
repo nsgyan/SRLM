@@ -17,6 +17,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { Listview2Component } from './listview2/listview2.component';
 import { Formview2Component } from './formview2/formview2.component';
 import { UserComponent } from './user/user.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserComponent } from './user/user.component';
     HttpClientJsonpModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
