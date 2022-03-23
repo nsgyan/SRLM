@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { DemandRequestsRoutingModule } from './demand-requests-routing.module';
 import { DemandRequestsComponent } from './demand-requests.component';
-import { AddAddDemandRequestsComponent } from './add-add-demand-requests/add-add-demand-requests.component';
+
 import { AddDemandRequestsComponent } from './add-demand-requests/add-demand-requests.component';
 
 
 @NgModule({
   declarations: [
     DemandRequestsComponent,
-    AddAddDemandRequestsComponent,
     AddDemandRequestsComponent
   ],
   imports: [

@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { DesignationRoutingModule } from './designation-routing.module';
 import { AddDesignationComponent } from './add-designation/add-designation.component';
-import { AddDistrictMasterComponent } from './add-district-master/add-district-master.component';
+import { DesignationComponent } from './designation.component';
+
 
 
 @NgModule({
   declarations: [
+    DesignationComponent,
     AddDesignationComponent,
-    AddDistrictMasterComponent
   ],
   imports: [
     CommonModule,

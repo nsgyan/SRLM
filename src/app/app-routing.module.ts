@@ -24,7 +24,12 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    children:[
+    {  path: '',
       loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+}
+    ]
+     
   },
   { path: 'list', component: ListviewComponent },
   { path: 'form', component: FormviewComponent },
