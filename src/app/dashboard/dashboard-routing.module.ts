@@ -17,6 +17,9 @@ const routes: Routes = [
   { path: 'system-configuration', 
   loadChildren: () => import('./system-configuration/system-configuration-routing.module').then(m => m.SystemConfigurationRoutingModule) 
 },
+{ path: 'navigation', 
+  loadChildren: () => import('./navigation/navigation.module').then(m => m.NavigationModule) 
+},
  
 ];
 
