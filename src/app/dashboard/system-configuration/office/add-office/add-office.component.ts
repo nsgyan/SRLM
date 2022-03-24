@@ -11,13 +11,13 @@ import { Office } from 'src/app/shared/data.model';
   styleUrls: ['./add-office.component.css']
 })
 export class AddOfficeComponent implements OnInit {
-  officeForm.value: FormGroup;
+  officeForm: FormGroup;
 
 
   constructor(private formBuilder:FormBuilder,
     private  data:DataService,
     private location: Location) {
-    this.officeForm.value = this.formBuilder.group({
+    this.officeForm = this.formBuilder.group({
       officeType: [''],
       officeName: [''],
       officeDescription: [''],
@@ -37,7 +37,7 @@ export class AddOfficeComponent implements OnInit {
 
   onSubmit() {
     console.log(this.officeForm.value.value);
-   let newoffice= new Office(
+    const newoffice = new Office(
       this.officeForm.value.officeType,
       this.officeForm.value.officeName,
       this.officeForm.value.officeDescription,
@@ -48,7 +48,7 @@ export class AddOfficeComponent implements OnInit {
       this.officeForm.value.officerMobile,
       this.officeForm.value.gstNumber,
       this.officeForm.value.pan)
-      this.data.addnewOffice(newoffice);
+     
     // this.location.back()
     
     // this.submitted = true;

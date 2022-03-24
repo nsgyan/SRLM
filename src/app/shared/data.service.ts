@@ -8,7 +8,7 @@ import { Office } from './data.model';
 export class DataService {
   officeChange= new EventEmitter<Office[]>()
 private office:Office[]=[
-  new Office('sfgdg','sfgdg','sfgdg','sfgdg','sfgdg','sfgdg','sfgdg','sfgdg','sfgdg','sfgdg')
+  new Office('sfgdg','sfgdg','sfgdg',7275738557,'sfgdg',45,'sfgdg',25,'sfgdg','sfgdg')
 ]
 
   constructor() { }
@@ -17,7 +17,9 @@ private office:Office[]=[
   }
   addnewOffice(office:Office[]){
     this.office.push(...office);
-    this.officeChange.emit(this.office.slice());
+    console.log(office);
+    
+    // this.officeChange.emit(this.office.slice());
 
   }
 }
