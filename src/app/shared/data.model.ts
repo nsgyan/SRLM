@@ -1,26 +1,56 @@
-export class Office{
-    public officeType:string | undefined;
-    public officeName:string | undefined;
-    public officeDescription:string | undefined;
-    public constactNumber:Number | undefined;
-    public highestOfficer:string | undefined;
-    public officerDesignation:Number | undefined;
-    public officerEmail:string | undefined;
-    public officerMobile:Number | undefined;
-    public gstNumber:string | undefined;
-    public  pan:string | undefined;
-    constructor(officeType:string,officeName:string,officeDescription:string,constactNumber:Number,highestOfficer:string,officerDesignation:Number,officerEmail:string,officerMobile:Number,gstNumber:string,pan:string){
-        this.officeType=officeType;
-        this.officeName=officeName;
-        this.officeDescription= officeDescription;
-        this.constactNumber= constactNumber;
-        this.highestOfficer= highestOfficer;
-        this.officeDescription=officeDescription;
-        this.officerEmail= officerEmail;
-        this.officerMobile=officerMobile;
-        this.pan=pan;
-        this.gstNumber=gstNumber
-        this.officerDesignation= officerDesignation
-        
+export class Office {
+    public officeType: string ;
+    public officeName: string ;
+    public officeDescription: string ;
+    public contactNumber: Number ;
+    public highestOfficer: string ;
+    public officerDesignation: string ;
+    public officerEmail: string ;
+    public officerMobile: Number ;
+    public gstNumber: string ;
+    public pan: string ;
+    public nodalOfficerName: string ;
+    public nodalOfficerMobile: Number ;
+    public nodalOfficerEmail: string ;
+    constructor(
+        officeType: string,
+        officeName: string,
+        officeDescription: string,
+        contactNumber: Number,
+        highestOfficer: string,
+        officerDesignation: string,
+        officerEmail: string,
+        officerMobile: Number,
+        gstNumber: string,
+        pan: string,
+        nodalOfficerName: string,
+        nodalOfficerMobile: Number,
+        nodalOfficerEmail: string
+    ) {
+        this.officeType = officeType;
+        this.officeName = officeName;
+        this.officeDescription = officeDescription;
+        this.contactNumber = contactNumber;
+        this.highestOfficer = highestOfficer;
+        this.officeDescription = officeDescription;
+        this.officerEmail = officerEmail;
+        this.officerMobile = officerMobile;
+        this.pan = pan;
+        this.gstNumber = gstNumber
+        this.officerDesignation = officerDesignation;
+        this.nodalOfficerEmail = nodalOfficerEmail;
+        this.nodalOfficerName = nodalOfficerName;
+        this.nodalOfficerMobile = nodalOfficerMobile
+
     }
+}
+
+export class Designation {
+    designationName: string
+    reportingTo: string
+    constructor(designationName: string, reportingTo: string) {
+        this.designationName = designationName;
+        this.reportingTo = reportingTo
+    }
+
 }

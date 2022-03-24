@@ -4,7 +4,7 @@
         <div class="bg-red lter b-b wrapper-md">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                    <h3 class="m-n font-thin text-white">Add Designation</h3>
+                    <h3 class="m-n font-thin text-white" >Add Designation</h3>
                 </div>
             </div>
         </div>
@@ -12,7 +12,7 @@
         <div class="wrapper-md">
             <div class="panel b-a">
                 <div class="panel-body">
-                    <form role="form" autocomplete="off">
+                    <form [formGroup]="designationForm" role="form" autocomplete="off">
                         <div class="row">
                             <div class="col-md-12">
                                 <legend>
@@ -23,13 +23,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Designation Name:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <input formControlName="designationName" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Reporting To:</label>
-                                    <select class="form-control model_code" name="model_code">
+                                    <select formControlName="reportingTo" class="form-control model_code" name="model_code">
                                         <option value=''>Select Manager</option>
                                             <option value="">1</option>
                                             <option value="">2</option>

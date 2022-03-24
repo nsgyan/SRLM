@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DesignationRoutingModule } from './designation-routing.module';
 import { AddDesignationComponent } from './add-designation/add-designation.component';
 import { DesignationComponent } from './designation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,7 +15,9 @@ import { DesignationComponent } from './designation.component';
   ],
   imports: [
     CommonModule,
-    DesignationRoutingModule
+    DesignationRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DesignationModule { }

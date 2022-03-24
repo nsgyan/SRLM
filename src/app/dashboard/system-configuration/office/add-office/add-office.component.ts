@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common'
 import { DataService } from 'src/app/shared/data.service';
 import { Office } from 'src/app/shared/data.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-office',
@@ -16,18 +17,22 @@ export class AddOfficeComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder,
     private  data:DataService,
-    private location: Location) {
+    private router:Router,
+    private snackBar:MatSnackBar) {
     this.officeForm = this.formBuilder.group({
       officeType: [''],
       officeName: [''],
       officeDescription: [''],
-      constactNumber: [''],
+      contactNumber: [''],
       highestOfficer: [''],
       officerDesignation: [''],
       officerEmail: [''],
       officerMobile: [''],
       gstNumber: [''],
       pan: [''],
+      nodalOfficerMobile:[''],
+      nodalOfficerEmail:[''],
+      nodalOfficerName:[''],
   });
    }
 
@@ -37,7 +42,7 @@ export class AddOfficeComponent implements OnInit {
 
   onSubmit() {
     console.log(this.officeForm.value.value);
-    const newoffice = new Office(
+    const newoffice = [new Office(
       this.officeForm.value.officeType,
       this.officeForm.value.officeName,
       this.officeForm.value.officeDescription,
@@ -47,19 +52,19 @@ export class AddOfficeComponent implements OnInit {
       this.officeForm.value.officerEmail,
       this.officeForm.value.officerMobile,
       this.officeForm.value.gstNumber,
-      this.officeForm.value.pan)
-     
-    // this.location.back()
-    
-    // this.submitted = true;
-
-    // // stop here if form is invalid
-    // if (this.registerForm.invalid) {
-    //     return;
-    // }
-
-    // // display form values on success
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+      this.officeForm.value.pan,
+      this.officeForm.value.nodalOfficerName,
+      this.officeForm.value.nodalOfficerMobile,
+      this.officeForm.value.nodalOfficerEmail,
+      )]
+      console.log(newoffice);
+      this.data.addnewOffice(newoffice)
+        this.snackBar.open("successfully New  Officer Added", "Close",{
+          duration:1* 1000,
+        });
+      
+      this.router.navigate(['/dashboard/system-configuration/office'])
+   
 }
 
 
