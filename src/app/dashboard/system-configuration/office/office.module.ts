@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { OfficeRoutingModule } from './office-routing.module';
 import { AddOfficeComponent } from './add-office/add-office.component';
 import { OfficeComponent } from './office.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { OfficeComponent } from './office.component';
   ],
   imports: [
     CommonModule,
-    OfficeRoutingModule
+    OfficeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class OfficeModule { }

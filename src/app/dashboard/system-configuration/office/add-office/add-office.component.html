@@ -3,7 +3,7 @@
         <div class="bg-red lter b-b wrapper-md">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                    <h3 class="m-n font-thin text-white">Add Office</h3> 
+                    <h3 class="m-n font-thin text-white">Add Office</h3>
                 </div>
             </div>
         </div>
@@ -11,7 +11,7 @@
         <div class="wrapper-md">
             <div class="panel b-a">
                 <div class="panel-body">
-                    <form role="form" method="post" action="" autocomplete="off">
+                    <form [formGroup]="officeForm"  role="form"  autocomplete="off">
                         <div class="row">
                             <div class="col-md-12">
                                 <legend>
@@ -21,55 +21,55 @@
                             
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Office Type:</label>
-                                    <select class="form-control model_code" name="model_code">
+                                    <label class="control-label font-weight-600">Office Type</label>
+                                    <select formControlName="officeType" class="form-control model_code" name="model_code">
                                         <option value=''>Select Office Type</option>
-                                            <option value="">1</option>
-                                            <option value="">2</option>
-                                            <option value="">3</option>
+                                            <option value="SMMU">SMMU</option>
+                                            <option value="DMMU">DMMU</option>
+                                            <option value="BMMU">BMMU</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Office Name:</label>
+                                    <label class="control-label font-weight-600">Office Name</label>
+                                    <input formControlName="officeName" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Office Description</label>
+                                    <input formControlName="officeDescription" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Contact Number</label>
+                                    <input formControlName="contactNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Address Line 1</label>
                                     <input type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Office Description:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Address Line 2</label>
+                                    <input  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Contact Number:</label>
-                                    <input type="text" class="form-control" name="fin_no">
-                                </div>
+                                    <label class="control-label font-weight-600">PinCode</label>
+                                    <input  type="text" class="form-control" name="fin_no">
+                                </div> 
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Address Line 1:</label>
-                                    <input type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">Address Line 2:</label>
-                                    <input type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">PinCode:</label>
-                                    <input type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">City:</label>
-                                    <select class="form-control model_code" name="model_code">
+                                    <label class="control-label font-weight-600">City</label>
+                                    <select  class="form-control model_code" name="model_code">
                                         <option value=''>Select City</option>
                                             <option value="">1</option>
                                             <option value="">2</option>
@@ -79,51 +79,51 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Google Location:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Google Location</label>
+                                    <input  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Latitude:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Latitude</label>
+                                    <input  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Longitude:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Longitude</label>
+                                    <input  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Nodal Officer Name:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Nodal Officer Name</label>
+                                    <input formControlName="nodalOfficerName"   type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Nodal EMail:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Nodal EMail</label>
+                                    <input formControlName="nodalOfficerEmail" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Nodal Mobile:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Nodal Mobile</label>
+                                    <input formControlName="nodalOfficerMobile"  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Highest Officer:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Highest Officer</label>
+                                    <input formControlName="highestOfficer" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Officer Designation:</label>
-                                    <select class="form-control model_code" name="model_code">
+                                    <label class="control-label font-weight-600">Officer Designation</label>
+                                    <select formControlName="officerDesignation" class="form-control model_code" name="model_code">
                                         <option value=''>Select Officer Designation</option>
                                             <option value="">1</option>
                                             <option value="">2</option>
@@ -133,50 +133,50 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Officer EMail:</label>
-                                    <input type="email" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Officer EMail</label>
+                                    <input formControlName="officerEmail" type="email" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Officer Mobile:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Officer Mobile</label>
+                                    <input formControlName="officerMobile" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">GST Number:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">GST Number</label>
+                                    <input formControlName="gstNumber" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">PAN:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">PAN</label>
+                                    <input formControlName="pan" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">GST Document:</label>
+                                    <label class="control-label font-weight-600">GST Document</label>
                                     <input type="file" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">PAN Document:</label>
-                                    <input type="file" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">PAN Document</label>
+                                    <input  type="file" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Name of DDO:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Name of DDO</label>
+                                    <input  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Name of Sanctioning Authority:</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Name of Sanctioning Authority</label>
+                                    <input  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                         <hr/>
                         <div class="row">
                             <div class="col-md-12">
-                                <a class="btn m-b-xs btn-md btn-success" href="">Save</a>
+                                <a class="btn m-b-xs btn-md btn-success"  (click)="onSubmit()">Save</a>
                                 <a class="btn m-b-xs btn-md btn-primary" href="">Save and New</a>
                                 <a class="btn m-b-xs btn-md btn-default" href="">Cancel</a>
                             </div>
