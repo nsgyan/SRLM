@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Designation } from 'src/app/shared/data.model';
+import { DataService } from 'src/app/shared/data.service';
 
 @Component({
   selector: 'app-designation',
@@ -8,12 +10,22 @@ import { Router } from '@angular/router';
 })
 export class DesignationComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  designation: any
+  constructor(private data: DataService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.designation = this.data.getdesignation()
+    console.log(this.designation);
+    this.data.designationChange.subscribe((designation: Designation[]) => {
+      this.designation = designation
+      console.log(designation);
+
+    })   
   }
-  addoffice(){
+  adddesignation() {
     this.router.navigate(['/dashboard/system-configuration/designation/add'])
   }
+
 
 }
