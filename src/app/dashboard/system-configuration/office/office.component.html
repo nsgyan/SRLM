@@ -7,7 +7,7 @@
             <h3 class="m-n font-thin text-white">Add Office</h3>
           </div>
           <div class="col-sm-6 text-right poppins hidden-xs">
-            <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger"><i class="fa fa-plus"></i> Add New Office</button>
+            <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger" (click)="addoffice()"><i class="fa fa-plus"></i> Add New Office</button>
           </div>
         </div>
       </div>
@@ -78,8 +78,8 @@
                         <th class="text-center">Actions</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
+                    <tbody >
+                      <tr *ngFor="let item of office; let i = index ">
                         <td class="text-center">
                           <div>
                             <label>
@@ -87,31 +87,31 @@
                             </label>
                           </div>
                         </td>
-                        <td><span class="font-bold text-theme">000000</span></td>
-                        <td><span class="font-bold text-theme">Office Name</span>
+                        <td><span class="font-bold text-theme">{{i+1}}</span></td>
+                        <td><span class="font-bold text-theme">{{item.officeName}}</span>
                           <ul class="list-unstyled text-xs">
-                            <li>Type: AABB</li>
+                            <li>Type: {{item.officeType}}</li>
                           </ul>
                         </td>
-                        <td>We run a series of....</td>
-                        <td><i class="fa fa-mobile"></i> +91 8126139074</td>
-                        <td><span class="font-bold text-theme">Nodal Officer Name</span>
+                        <td>{{item.officeDescription}}</td>
+                        <td><i class="fa fa-mobile"></i> {{item.contactNumber}}</td>
+                        <td><span class="font-bold text-theme">{{item.nodalOfficerName}}</span>
                             <ul class="list-unstyled text-xs">
-                              <li><i class="fa fa-phone"></i> +91 8126139074</li>
-                              <li><i class="fa fa-envelope"></i> gyanendra.s@troology.com</li>
+                              <li><i class="fa fa-phone"></i> {{item.nodalOfficerMobile}}</li>
+                              <li><i class="fa fa-envelope"></i> {{item.nodalOfficerEmail}}<li>
                             </ul>
                         </td>
-                        <td><span class="font-bold text-theme">Heighest Officer Name</span>
+                        <td><span class="font-bold text-theme">{{item.highestOfficer}}</span>
                             <ul class="list-unstyled text-xs">
-                              <li><i class="fa fa-briefcase"></i> Designation</li>
-                              <li><i class="fa fa-phone"></i> +91 8126139074</li>
-                              <li><i class="fa fa-envelope"></i> gyanendra.s@troology.com</li>
+                              <li><i class="fa fa-briefcase"></i> {{item.officerDesignation}}</li>
+                              <li><i class="fa fa-phone"></i> {{item.officerMobile}}</li>
+                              <li><i class="fa fa-envelope"></i> {{item.officerEmail}}</li>
                             </ul>
                         </td>
                         <td>
                             <ul class="list-unstyled text-xs">
-                              <li><span class="font-bold text-theme">GST:</span>0000 0000 0000 000</li>
-                              <li><span class="font-bold text-theme">PAN Card:</span>ENAPS9677G</li>
+                              <li><span class="font-bold text-theme">GST:</span>{{item.gstNumber}}</li>
+                              <li><span class="font-bold text-theme">PAN Card:</span>{{item.pan}}</li>
                             </ul>
                         </td>
                         <td>
@@ -132,61 +132,7 @@
                             </ul>
                           </div>
                         </td>
-                      </tr> <tr>
-                        <td class="text-center">
-                          <div>
-                            <label>
-                              <input type="checkbox">
-                            </label>
-                          </div>
-                        </td>
-                        <td><span class="font-bold text-theme">000000</span></td>
-                        <td><span class="font-bold text-theme">Office Name</span>
-                          <ul class="list-unstyled text-xs">
-                            <li>Type: AABB</li>
-                          </ul>
-                        </td>
-                        <td>We run a series of....</td>
-                        <td><i class="fa fa-mobile"></i> +91 8126139074</td>
-                        <td><span class="font-bold text-theme">Nodal Officer Name</span>
-                            <ul class="list-unstyled text-xs">
-                              <li><i class="fa fa-phone"></i> +91 8126139074</li>
-                              <li><i class="fa fa-envelope"></i> gyanendra.s@troology.com</li>
-                            </ul>
-                        </td>
-                        <td><span class="font-bold text-theme">Heighest Officer Name</span>
-                            <ul class="list-unstyled text-xs">
-                              <li><i class="fa fa-briefcase"></i> Designation</li>
-                              <li><i class="fa fa-phone"></i> +91 8126139074</li>
-                              <li><i class="fa fa-envelope"></i> gyanendra.s@troology.com</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="list-unstyled text-xs">
-                              <li><span class="font-bold text-theme">GST:</span>0000 0000 0000 000</li>
-                              <li><span class="font-bold text-theme">PAN Card:</span>ENAPS9677G</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="list-unstyled text-xs">
-                              <li><span class="font-bold text-theme">GST: </span> <i class="fa fa-file-pdf-o text-danger"></i> GST...</li>
-                              <li><span class="font-bold text-theme">PAN Card: </span> <i class="fa fa-file-pdf-o text-danger"></i> PAN Card...</li>
-                            </ul>
-                        </td>
-                        <td class="text-center">
-                          <div class="btn-group dropdown">
-                            <button class="btn btn-default w-xxs btn-sm r-2x" data-toggle="dropdown"
-                              aria-expanded="false"><i class="fa fa-cog g-px-5  text-info text-sm"></i> <span class=""><i
-                                  class="fa fa-caret-down"></i></span></button>
-                            <ul class="dropdown-menu">
-                              <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
-                              <li><a href="#"><i class="fa fa-trash-o"></i> Delete </a></li>
-                              <li><a href="#"><i class="fa fa-lock"></i> Lock </a> </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
+                      </tr> 
                     </tbody>
                   </table>
                 </div>

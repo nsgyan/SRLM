@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-designation',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-designation.component.css']
 })
 export class AddDesignationComponent implements OnInit {
+  designationForm:FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder:FormBuilder) { 
+    this.designationForm= this.formBuilder.group({
+      designationName:['',Validators.required],
+      reportingTo:['']
+
+    })
+  }
 
   ngOnInit(): void {
   }
