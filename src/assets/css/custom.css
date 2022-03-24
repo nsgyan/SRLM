@@ -987,6 +987,7 @@ table.table.bg-white thead th {
         height: calc(100vh - 60px);
         overflow: auto;
         z-index: 4;
+        margin-right: 5px;
     }
 
     /*.aside-wrap::-webkit-scrollbar {
@@ -1295,7 +1296,7 @@ button.btn.btn-default.disabled {
 
 /*--------------------end dropzone css -----------------*/
 #sidebar::-webkit-scrollbar {
-    width: .3em;
+    width: .1em;
 }
  
 /* #sidebar::-webkit-scrollbar-track {
