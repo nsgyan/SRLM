@@ -7,7 +7,7 @@
             <h3 class="m-n font-thin text-white">Add Office</h3>
           </div>
           <div class="col-sm-6 text-right poppins hidden-xs">
-            <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger" ><i class="fa fa-plus"></i> Add New Designation</button>
+            <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger" (click)="adddesignation()" ><i class="fa fa-plus"></i> Add New Designation</button>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
                       </tr>
                     </thead>
                     <tbody >
-                      <tr>
+                      <tr *ngFor="let item of designation; let i = index ">
                         <td class="text-center">
                           <div>
                             <label>
@@ -82,9 +82,9 @@
                             </label>
                           </div>
                         </td>
-                        <td><span class="font-bold text-theme">322</span></td>
-                        <td>sfad</td>
-                        <td><i class="fa fa-mobile"></i> sdaf</td>
+                        <td><span class="font-bold text-theme">{{i}}</span></td>
+                        <td>{{item.designationName}}</td>
+                        <td><i class="fa fa-mobile"></i> {{item.reportingTo}}</td>
                         <td class="text-center">
                           <div class="btn-group dropdown">
                             <button class="btn btn-default w-xxs btn-sm r-2x" data-toggle="dropdown"

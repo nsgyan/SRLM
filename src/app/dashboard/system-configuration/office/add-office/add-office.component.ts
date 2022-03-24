@@ -39,7 +39,6 @@ export class AddOfficeComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.officeForm.value.value);
     const newoffice = [new Office(
       this.officeForm.value.officeType,
       this.officeForm.value.officeName,
