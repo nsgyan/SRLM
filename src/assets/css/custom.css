@@ -15,9 +15,23 @@ body {
 
 .bg-red {
     color: #58666e;
-    background-color: #ff7873;
+    background-color: #3a89c1;
 }
 
+.bg-blue {
+    color: #fff;
+    background-color: #3a89c1;
+}
+.btn-addNew {
+    color: #383838 !important;
+    background-color: #e7de4a;
+    border-color: #e7de4a;
+}
+.btn-addNew:hover, .btn-addNew:focus, .btn-addNew:active, .btn-addNew.active {
+    color: #383838 !important;
+    background-color: #e6d800;
+    border-color: #e6d800;
+}
 .dataTables_length {
     float: left;
 }
@@ -349,9 +363,14 @@ body {
     }
 
     .text-theme {
-        color: #ee5c3e;
+        color: #3a89c1;
     }
-
+table.table.bg-white thead th {
+    background-color: #21629f;
+    color: #fff;
+    padding: 2rem 15px;
+    font-weight: 100;
+}
     .bg-info .nav>li>a {
         color: #ffffff;
     }
@@ -1156,9 +1175,14 @@ body {
      color: #ffeb3b;
      background-color: rgba(0, 0, 0, 0.05);
  }
+ .bg-blue .nav > li > a:focus,
+   .bg-blue .nav > li > a.active {
+     color: #ffeb3b;
+     background-color: rgba(0, 0, 0, 0.05);
+ }
  .bg-white {
-    color: #fff;
-    background-color: #3a89c1;
+    color: #58666e;
+    background-color: #fff;
   }
  /* .bg-white .nav > li > a.active {    
     border-left: 3px solid #27c24c;
