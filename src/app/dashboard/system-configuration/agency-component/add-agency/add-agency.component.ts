@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Agency } from 'src/app/shared/data.model';
+import { DataService } from 'src/app/shared/data.service';
+import { ToasterService } from 'src/app/shared/toaster.service';
 
 @Component({
   selector: 'app-add-agency',
@@ -6,10 +11,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-agency.component.css']
 })
 export class AddAgencyComponent implements OnInit {
-
-  constructor() { }
+  agencyform: FormGroup
+  constructor(private formBuilder: FormBuilder,
+    private data: DataService,
+    private router: Router,
+    private toster: ToasterService) {
+    this.agencyform = this.formBuilder.group({
+      agencyCode: [''],
+      agencyName: [''],
+    })
+  }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    const newagency = [new Agency(
+      this.agencyform.value.agencyCode,
+      this.agencyform.value.agencyName,
+    )]
+    this.data.addnewAgency(newagency)
+    this.toster.showSuccess('New Agency Component Successfully Added')
+    this.router.navigate(['/dashboard/system-configuration/agencyComponent'])
+
+  }
+  cancel() {
+    this.router.navigate(['/dashboard/system-configuration/agencyComponent'])
+  }
 }
