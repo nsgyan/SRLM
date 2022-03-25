@@ -22,18 +22,21 @@
                             
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Designation Name:</label>
+                                    <label class="control-label font-weight-600">Designation Name</label>
                                     <input formControlName="designationName" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Reporting To:</label>
+                                    <label class="control-label font-weight-600">Reporting To</label>
                                     <select formControlName="reportingTo" class="form-control model_code" name="model_code">
                                         <option value=''>Select Manager</option>
-                                            <option value="">1</option>
-                                            <option value="">2</option>
-                                            <option value="">3</option>
+                                            <option value="Managing Director">Managing Director</option>
+                                            <option value="Chief Financial Officer">Chief Financial Officer</option>
+                                            <option value="Accounts Officer">Accounts Officer</option>
+                                            <option value="Administration Head">Administration Head</option>
+                                            <option value="District Officer">District Officer</option>
+                                            <option value="District Collectorate">District Collectorate</option>
                                     </select>
                                 </div>
                             </div>
@@ -43,8 +46,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a class="btn m-b-xs btn-md btn-success"  (click)="onSubmit()">Save</a>
-                                <a class="btn m-b-xs btn-md btn-primary" href="">Save and New</a>
-                                <a class="btn m-b-xs btn-md btn-default" href="">Cancel</a>
+                                <a class="btn m-b-xs btn-md btn-primary"  (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-default"  (click)="cancel()">Cancel</a>
                             </div>
                         </div>
                     </form>

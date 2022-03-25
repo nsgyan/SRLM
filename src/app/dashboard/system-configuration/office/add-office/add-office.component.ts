@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common'
 import { DataService } from 'src/app/shared/data.service';
 import { Office } from 'src/app/shared/data.model';
+import { ToasterService } from 'src/app/shared/toaster.service';
 
 @Component({
   selector: 'app-add-office',
@@ -16,7 +16,8 @@ export class AddOfficeComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder,
     private  data:DataService,
-    private router: Router) {
+    private router: Router,
+    private toster: ToasterService) {
     this.officeForm = this.formBuilder.group({
       officeType: [''],
       officeName: [''],
@@ -56,8 +57,13 @@ export class AddOfficeComponent implements OnInit {
       )]
       console.log(newoffice);
     this.data.addnewOffice(newoffice)
-      this.router.navigate(['/dashboard/system-configuration/office'])
-   
+    this.toster.showSuccess('New Office Successfully Added')
+    this.router.navigate(['/dashboard/system-configuration/office'])
+  }
+
+  cancel() {
+    this.router.navigate(['/dashboard/system-configuration/office'])
+
 }
 
 

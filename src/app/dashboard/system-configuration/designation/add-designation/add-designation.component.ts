@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToasterService } from 'src/app/shared/toaster.service';
 import { Designation } from 'src/app/shared/data.model';
 import { DataService } from 'src/app/shared/data.service';
 
@@ -14,7 +15,8 @@ export class AddDesignationComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private data: DataService,
-    private router: Router) { 
+    private router: Router,
+    private toster: ToasterService) { 
     this.designationForm= this.formBuilder.group({
       designationName:['',Validators.required],
       reportingTo:['']
@@ -32,9 +34,11 @@ export class AddDesignationComponent implements OnInit {
     )]
     console.log(designation);
     this.data.addnewdesignation(designation)
+    this.toster.showSuccess('Office Successfully Added')
     this.router.navigate(['/dashboard/system-configuration/designation'])
-
-
+  }
+  cancel() {
+    this.router.navigate(['/dashboard/system-configuration/designation'])
   }
 
 }

@@ -71,9 +71,12 @@
                                     <label class="control-label font-weight-600">City</label>
                                     <select  class="form-control model_code" name="model_code">
                                         <option value=''>Select City</option>
-                                            <option value="">1</option>
-                                            <option value="">2</option>
-                                            <option value="">3</option>
+                                            <option value="Lucknow">Lucknow</option>
+                                            <option value="Varanasi">Varanasi</option>
+                                            <option value="Mohanlalganj">Mohanlalganj</option>
+                                            <option value="Allahbad">Allahbad</option>
+                                            <option value="Lakhimpur">Lakhimpur</option>
+                                            <option value="Kanpur">Kanpur</option>
                                     </select>
                                 </div>
                             </div>
@@ -125,9 +128,12 @@
                                     <label class="control-label font-weight-600">Officer Designation</label>
                                     <select formControlName="officerDesignation" class="form-control model_code" name="model_code">
                                         <option value=''>Select Officer Designation</option>
-                                            <option value="">1</option>
-                                            <option value="">2</option>
-                                            <option value="">3</option>
+                                            <option value="Managing Director">Managing Director</option>
+                                            <option value="Accounts Officer">Accounts Officer</option>
+                                            <option value="Administration Head">Administration Head</option>
+                                            <option value="Chief Financial Officer">Chief Financial Officer</option>
+                                            <option value="District Officer">District Officer</option>
+                                            <option value="District Collectorate">District Collectorate</option>
                                     </select>
                                 </div>
                             </div>
@@ -185,8 +191,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a class="btn m-b-xs btn-md btn-success"  (click)="onSubmit()">Save</a>
-                                <a class="btn m-b-xs btn-md btn-primary" href="">Save and New</a>
-                                <a class="btn m-b-xs btn-md btn-default" href="">Cancel</a>
+                                <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-default"  (click)="cancel()">Cancel</a>
                             </div>
                         </div>
                     </form>
@@ -195,3 +201,14 @@
         </div>
     </div>
 </div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>

@@ -4,7 +4,7 @@
       <div class="bg-blue lter b-b wrapper-md">
         <div class="row">
           <div class="col-sm-6 col-xs-12">
-            <h3 class="m-n font-thin text-white">Add Office</h3>
+            <h3 class="m-n font-thin text-white">Add  Designation</h3>
           </div>
           <div class="col-sm-6 text-right poppins hidden-xs">
             <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger" (click)="adddesignation()" ><i class="fa fa-plus"></i> Add New Designation</button>
@@ -82,7 +82,7 @@
                             </label>
                           </div>
                         </td>
-                        <td><span class="font-bold text-theme">{{i}}</span></td>
+                        <td><span class="font-bold text-theme">{{i+1}}</span></td>
                         <td>{{item.designationName}}</td>
                         <td><i class="fa fa-mobile"></i> {{item.reportingTo}}</td>
                         <td class="text-center">

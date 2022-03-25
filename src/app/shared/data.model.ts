@@ -54,3 +54,36 @@ export class Designation {
     }
 
 }
+export class Officer {
+    public name: string
+    public dob: string
+    public gender: string
+    public fatherName: string
+    public aadhaarNo: number
+    public panNo: string
+    public mobileNumber: number
+    public email: string
+    constructor(
+        name: string,
+        dob: string,
+        gender: string,
+        fatherName: string,
+        aadhaarNo: number,
+        panNo: string,
+        mobileNumber: number,
+        email: string,
+    ) {
+        this.name = name;
+        this.dob = dob;
+        this.gender = gender;
+        this.fatherName = fatherName;
+        this.aadhaarNo = aadhaarNo;
+        this.panNo = panNo;
+        this.mobileNumber = mobileNumber;
+        this.email = email
+
+
+
+
+    }
+}
