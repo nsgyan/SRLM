@@ -4,10 +4,10 @@
       <div class="bg-blue lter b-b wrapper-md">
         <div class="row">
           <div class="col-sm-6 col-xs-12">
-            <h3 class="m-n font-thin text-white">Add Officer</h3>
+            <h3 class="m-n font-thin text-white">Officer List View</h3>
           </div>
           <div class="col-sm-6 text-right poppins hidden-xs">
-            <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger"  (click)="addofficer()" ><i class="fa fa-plus"></i> Add New Officer</button>
+            <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger"  (click)="addofficer()" ><i class="fa fa-plus"></i> Create New Officer</button>
           </div>
         </div>
       </div>
@@ -77,25 +77,25 @@
                     </thead>
                     <tbody >
                     <tr *ngFor="let item of officer; let i = index ">
-                        <!-- <td class="text-center">
+                        <td class="text-center">
                           <div>
                             <label>
                               <input type="checkbox">
                             </label>
                           </div>
-                        </td> -->
-                        <!-- <td><span class="font-bold text-theme">{{i+1}}</span></td> -->
-                        <!-- <td><span class="font-bold text-theme">{{item.name}}</span>
+                        </td> 
+                        <td><span class="font-bold text-theme">{{i+1}}</span></td>
+                        <td><span class="font-bold text-theme">{{item.name}}</span>
                           <ul class="list-unstyled text-xs">
                             <li>{{item.dob}}</li>
                             <li>{{item.gender}}</li>
                           </ul>
-                        </td> -->
-                        <td><span class="font-bold text-theme">Father:</span>{{item.fatherName}}</td>
-                        <!-- <td>
+                        </td>
+                        <td><span class="font-bold text-theme">Father: </span>{{item.fatherName}}</td>
+                        <td>
                             <ul class="list-unstyled text-xs">
-                              <li><span class="font-bold text-theme">Aadhar:</span>{{item.aadhaarNo}}</li>
-                              <li><span class="font-bold text-theme">PAN Card:</span>{{item.panNo}}</li>
+                              <li><span class="font-bold text-theme">Aadhar: </span>{{item.aadhaarNo}}</li>
+                              <li><span class="font-bold text-theme">PAN Card: </span>{{item.panNo}}</li>
                             </ul>
                         </td>
                         <td>
@@ -115,7 +115,7 @@
                               <li><a href="#"><i class="fa fa-lock"></i> Lock </a> </li>
                             </ul>
                           </div>
-                        </td> -->
+                        </td>
                       </tr> 
                     </tbody>
                   </table>

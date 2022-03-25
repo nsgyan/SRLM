@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Designation, Office, Officer } from './data.model';
+import { Agency, Designation, Office, Officer, VendorService, VendorType } from './data.model';
 
 
 @Injectable({
@@ -74,6 +74,37 @@ private designation:Designation[]=[
   new Designation('HR', 'Shri Veer Singh'),
   new Designation('neAccountantw', 'Shri Rohan Pal')
 ]
+  vendorTypeChange = new EventEmitter<VendorType[]>()
+  private vendorType: VendorType[] = [
+    new VendorType('1', 'SHG', 'Self Help Groups'),
+    new VendorType('2', 'SRP', 'Stat Resource Person'),
+    new VendorType('3', 'DRP', 'District Resource Person'),
+    new VendorType('4', 'BRP', 'Block Resource Person'),
+    new VendorType('5', 'Bank Sakhi', 'Bank Sakhi Manday Payment'),
+    new VendorType('6', 'ICRP', 'ICRP Payments'),
+    new VendorType('7', 'External Party', 'External Vendor'),
+  ]
+
+  vendorServiceChange = new EventEmitter<VendorService[]>()
+  private vendorService: VendorService[] = [
+    new VendorService('1', 'TAXI', 'Taxi Booking Services'),
+    new VendorService('2', 'TENT', 'Taxi Booking Services'),
+    new VendorService('3', 'LODGING', 'Lodging Facilities'),
+    new VendorService('4', 'FOODING', 'Fooding Facilities'),
+    new VendorService('5', 'TRAIN BOOKING', 'Train Ticket Booing Services'),
+    new VendorService('6', 'AIR TICKET BOOKING', 'Air Ticket Booking Services'),
+  ]
+  agencyChange = new EventEmitter<Agency[]>()
+  private agency: Agency[] = [
+    new Agency('1', 'Improving Quality & Equity in Focus States'),
+    new Agency('2.1', 'System Level Strengthening'),
+    new Agency('1.3.3.5', 'Hiring of vehicles'),
+    new Agency('1.3.2.9', 'Management capacity development'),
+    new Agency('2.2.1', 'Operating Costs : National Project Implementation Unit (NPIU)'),
+    new Agency('2.2.1.4', 'Operation and maintenance of equipments'),
+
+  ]
+
 
   constructor() { }
   getdesignation(){
@@ -89,8 +120,7 @@ private designation:Designation[]=[
     return this.office.slice();
   }
   addnewOffice(office:Office[]){
-    this.office = office.concat(this.office)
-    console.log(this.office); 
+    this.office = office.concat(this.office) 
     this.officeChange.emit(this.office.slice());
   }
   getofficer() {
@@ -98,7 +128,30 @@ private designation:Designation[]=[
   }
   addnewOfficer(officer: Officer[]) {
     this.officer = officer.concat(this.officer)
-    console.log(this.office);
     this.officerChange.emit(this.officer.slice());
+  }
+
+
+  getVendorType() {
+    return this.vendorType.slice();
+  }
+  addnewVendorType(vendorType: VendorType[]) {
+    this.vendorType = vendorType.concat(this.vendorType)
+    this.vendorTypeChange.emit(this.vendorType.slice());
+  }
+
+  getVendorService() {
+    return this.vendorService.slice();
+  }
+  addnewVendorService(vendorService: VendorService[]) {
+    this.vendorService = vendorService.concat(this.vendorService)
+    this.vendorServiceChange.emit(this.vendorService.slice());
+  }
+  getAgency() {
+    return this.agency.slice();
+  }
+  addnewAgency(agency: Agency[]) {
+    this.agency = agency.concat(this.agency)
+    this.agencyChange.emit(this.agency.slice());
   }
 }

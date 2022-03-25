@@ -81,9 +81,43 @@ export class Officer {
         this.panNo = panNo;
         this.mobileNumber = mobileNumber;
         this.email = email
-
-
-
-
     }
+}
+
+
+export class VendorType {
+    vendorTypeCode: String
+    vendorTypeName: string
+    vendorTypeDescription: string
+    constructor(vendorTypeCode: String,
+        vendorTypeName: string,
+        vendorTypeDescription: string,) {
+        this.vendorTypeCode = vendorTypeCode
+        this.vendorTypeName = vendorTypeName
+        this.vendorTypeDescription = vendorTypeDescription
+    }
+
+}
+
+export class VendorService {
+    vendorServiceCode: String
+    vendorServiceName: string
+    vendorServiceDescription: string
+    constructor(vendorServiceCode: String,
+        vendorServiceName: string,
+        vendorServiceDescription: string,) {
+        this.vendorServiceCode = vendorServiceCode
+        this.vendorServiceName = vendorServiceName
+        this.vendorServiceDescription = vendorServiceDescription
+    }
+
+}
+export class Agency {
+    agencyCode: String
+    agencyName: string
+    constructor(agencyCode: string, agencyName: string) {
+        this.agencyCode = agencyCode
+        this.agencyName = agencyName
+    }
+
 }
