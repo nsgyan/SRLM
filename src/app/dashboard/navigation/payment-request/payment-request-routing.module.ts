@@ -4,8 +4,8 @@ import { PaymentRequestListViewComponent } from './payment-request-list-view/pay
 import { PaymentRequestComponent } from './payment-request.component';
 
 const routes: Routes = [
-  { path: '', component: PaymentRequestComponent},
-  { path: 'add', component: PaymentRequestListViewComponent },
+  { path: 'add', component: PaymentRequestComponent},
+  { path: '', component: PaymentRequestListViewComponent },
 ];
 
 @NgModule({
