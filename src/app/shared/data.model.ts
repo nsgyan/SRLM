@@ -121,3 +121,11 @@ export class Agency {
     }
 
 }
+
+export class Bank {
+    bankName: String;
+    constructor(bankName: string) {
+        this.bankName = bankName
+    }
+
+}

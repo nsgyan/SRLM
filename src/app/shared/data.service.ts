@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Agency, Designation, Office, Officer, VendorService, VendorType } from './data.model';
+import { Agency, Bank, Designation, Office, Officer, VendorService, VendorType } from './data.model';
 
 
 @Injectable({
@@ -104,6 +104,18 @@ private designation:Designation[]=[
     new Agency('2.2.1.4', 'Operation and maintenance of equipments'),
 
   ]
+  bankChange = new EventEmitter<Bank[]>()
+  private bank: Bank[] = [
+    new Bank('Andhra Bank'),
+    new Bank('BANK OF BARODA'),
+    new Bank('Bank Of Maharashtra'),
+    new Bank('Central Bank Of India'),
+    new Bank('Dena Bank'),
+    new Bank('ICICI Bank'),
+    new Bank('Indian overseas bank'),
+    new Bank('IDBI Bank'),
+
+  ]
 
 
   constructor() { }
@@ -153,5 +165,13 @@ private designation:Designation[]=[
   addnewAgency(agency: Agency[]) {
     this.agency = agency.concat(this.agency)
     this.agencyChange.emit(this.agency.slice());
+  }
+
+  getBank() {
+    return this.bank.slice();
+  }
+  addnewBank(bank: Bank[]) {
+    this.bank = bank.concat(this.bank)
+    this.bankChange.emit(this.bank.slice());
   }
 }
