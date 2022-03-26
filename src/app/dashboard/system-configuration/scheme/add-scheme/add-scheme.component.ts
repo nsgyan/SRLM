@@ -38,11 +38,11 @@ export class AddSchemeComponent implements OnInit {
     // )]
     // console.log(designation);
     // this.data.addnewdesignation(designation)
-    // this.toster.showSuccess('Office Successfully Added')
-    // this.router.navigate(['/dashboard/system-configuration/designation'])
+    this.toster.showSuccess('New Scheme Successfully Added')
+    this.router.navigate(['/dashboard/system-configuration/scheme'])
   }
   cancel() {
-    // this.router.navigate(['/dashboard/system-configuration/designation'])
+    this.router.navigate(['/dashboard/system-configuration/scheme'])
   }
 
 }

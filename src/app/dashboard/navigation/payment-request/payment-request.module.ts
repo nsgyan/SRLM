@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PaymentRequestRoutingModule } from './payment-request-routing.module';
-import { PaymentRequestListViewComponent } from './payment-request-list-view/payment-request-list-view.component';
-
+import { PaymentRequestComponent } from './payment-request.component';
+import { AddPaymentRequestComponent } from './add-payment-request/add-payment-request.component';
 
 @NgModule({
-  declarations: [
-    PaymentRequestListViewComponent
+  declarations: [PaymentRequestComponent,
+    AddPaymentRequestComponent
   ],
   imports: [
     CommonModule,
