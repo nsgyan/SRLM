@@ -172,6 +172,14 @@ private designation:Designation[]=[
     this.vendorTypeChange.emit(this.vendorType.slice());
   }
 
+  getVendor() {
+    return this.vendor.slice();
+  }
+  addnewVendor(vendor: Vendor[]) {
+    this.vendor = vendor.concat(this.vendor)
+    this.vendorChange.emit(this.vendor.slice());
+  }
+
   getVendorService() {
     return this.vendorService.slice();
   }
