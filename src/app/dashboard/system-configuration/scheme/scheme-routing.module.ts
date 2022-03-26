@@ -4,8 +4,8 @@ import { AddSchemeComponent } from './add-scheme/add-scheme.component';
 import { SchemeComponent } from './scheme.component';
 
 const routes: Routes = [
-  { path: 'add', component: SchemeComponent },
-  { path: '', component: AddSchemeComponent },
+  { path: '', component: SchemeComponent },
+  { path: 'add', component: AddSchemeComponent },
 ];
 
 @NgModule({

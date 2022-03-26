@@ -18,11 +18,11 @@ export class AddSchemeComponent implements OnInit {
     private router: Router,
     private toster: ToasterService) {
     this.schemeForm = this.formBuilder.group({
-      schemeId: [''],
-      schemeReferenceCode: [''],
-      schemeHierarchialCode: [''],
+      schemeCode: [''],
       schemeName: [''],
-      schemeDescription: ['']
+      schemeComponentName: [''],
+      schemeClassification: [''],
+      schemeClassificationHeads: ['']
     })
   }
 

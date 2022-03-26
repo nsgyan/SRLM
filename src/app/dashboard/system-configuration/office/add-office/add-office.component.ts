@@ -44,7 +44,7 @@ export class AddOfficeComponent implements OnInit {
       this.officeForm.value.officeType,
       this.officeForm.value.officeName,
       this.officeForm.value.officeDescription,
-      this.officeForm.value.constactNumber,
+      this.officeForm.value.contactNumber,
       this.officeForm.value.highestOfficer,
       this.officeForm.value.officerDesignation,
       this.officeForm.value.officerEmail,

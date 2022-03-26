@@ -159,3 +159,79 @@ export class SchemeLimitSetting {
     }
 
 }
+export class Scheme {
+    schemeCode: String
+    schemeName: String
+    schemeComponentName: String
+    schemeClassification: String
+    schemeClassificationHeads: String
+    constructor(schemeCode: String,
+        schemeName: String,
+        schemeComponentName: String,
+        schemeClassification: String,
+        schemeClassificationHeads: String) {
+        this.schemeCode = schemeCode
+        this.schemeName = schemeName
+        this.schemeComponentName = schemeComponentName
+        this.schemeClassification = schemeClassification
+        this.schemeClassificationHeads = schemeClassificationHeads
+    }
+}
+export class Vendor {
+    vendorType: String
+    vendorService: string
+    vendorSubService: String
+    vendorName: string
+    vendorDob: String
+    vendorPanNumber: String
+    vendorGstNumber: string
+    vendorAadhar: String
+    vendorTanNumber: string
+    vendorTinNumber: String
+    vendorServiceTaxNumber: string
+    vendorMobileNumber: String
+    vendorPhoneNumber: string
+    vendorEmail: String
+    vendorBankName: String
+    vendorBankIfscCode: string
+    vendorAccountNumber: string
+    constructor(
+        vendorType: String,
+        vendorService: string,
+        vendorSubService: String,
+        vendorName: string,
+        vendorDob: String,
+        vendorPanNumber: String,
+        vendorGstNumber: string,
+        vendorAadhar: String,
+        vendorTanNumber: string,
+        vendorTinNumber: String,
+        vendorServiceTaxNumber: string,
+        vendorMobileNumber: String,
+        vendorPhoneNumber: string,
+        vendorEmail: String,
+        vendorBankName: String,
+        vendorBankIfscCode: string,
+        vendorAccountNumber: string,
+
+    ) {
+        this.vendorType = vendorType
+        this.vendorService = vendorService
+        this.vendorSubService = vendorSubService
+        this.vendorName = vendorName
+        this.vendorDob = vendorDob
+        this.vendorPanNumber = vendorPanNumber
+        this.vendorGstNumber = vendorGstNumber
+        this.vendorAadhar = vendorAadhar
+        this.vendorTanNumber = vendorTanNumber
+        this.vendorTinNumber = vendorTinNumber
+        this.vendorServiceTaxNumber = vendorServiceTaxNumber
+        this.vendorMobileNumber = vendorMobileNumber
+        this.vendorPhoneNumber = vendorPhoneNumber
+        this.vendorEmail = vendorEmail
+        this.vendorBankName = vendorBankName
+        this.vendorBankIfscCode = vendorBankIfscCode
+        this.vendorAccountNumber = vendorAccountNumber
+    }
+
+}

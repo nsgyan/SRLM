@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Agency, Bank, Designation, Office, Officer, SchemeLimitSetting, VendorService, VendorType } from './data.model';
+import { Agency, Bank, Designation, Office, Officer, Scheme, SchemeLimitSetting, Vendor, VendorService, VendorType } from './data.model';
 
 
 @Injectable({
@@ -94,6 +94,12 @@ private designation:Designation[]=[
     new VendorService('5', 'TRAIN BOOKING', 'Train Ticket Booing Services'),
     new VendorService('6', 'AIR TICKET BOOKING', 'Air Ticket Booking Services'),
   ]
+
+  vendorChange = new EventEmitter<Vendor[]>()
+  private vendor: Vendor[] = [
+    new Vendor('External Party', 'TAXI', 'Local Travel', 'Hello Taxi Service', '03/02/1967', 'SDFASF3243F', '09JSDFJ2345D1DD', '0974 7868 7868', '', '', '', '987923479', '687687996', 't1@gmail.com', 'AXIS BANK', 'AXI236548D', '9170100000000319'),
+  ]
+
   agencyChange = new EventEmitter<Agency[]>()
   private agency: Agency[] = [
     new Agency('1', 'Improving Quality & Equity in Focus States'),
@@ -122,6 +128,13 @@ private designation:Designation[]=[
     new SchemeLimitSetting('RSETI', 'UP172', 'abcd', 'abcd', 'All Districts', '235,878,728.00', '165,115,109.60', '70,763,618.40'),
     new SchemeLimitSetting('MKSP', 'UP171', 'abcd', 'abcd', 'All Districts', '67,457,456.00', '47,220,219.20', '20,237,236.80'),
     new SchemeLimitSetting('SVEP', 'UP174', 'abcd', 'abcd', 'All Districts', '1,641,343.20', '163,975,875.00', '703,432.80'),
+  ]
+  schemeChange = new EventEmitter<Scheme[]>()
+  private scheme: Scheme[] = [
+    new Scheme('NNRETP-A', 'NRETP', 'Institutional and Human Capacity Building [UP]', 'Workshop / Training', 'Administration Expenses'),
+    new Scheme('A1', 'NRETP', 'Technical Assistance [UP]', 'Workshop / Training', 'Workshop / Training'),
+    new Scheme('A1.1', 'NRETP', 'Multi-state Trainings, Consultations, Workshops etc and other Demand driven TA [UP]', 'Workshop / Training', 'Resource Person'),
+    new Scheme('A1.2', 'NRETP', 'abNational Resource Organization [UP]', 'Workshop / Training', 'Cadre Payment'),
   ]
 
 
@@ -188,5 +201,13 @@ private designation:Designation[]=[
   addnewschemeLimit(schemeLimit: SchemeLimitSetting[]) {
     this.schemeLimitSetting = schemeLimit.concat(this.schemeLimitSetting)
     this.schemeLimitSettingChange.emit(this.schemeLimitSetting)
+  }
+
+  getscheme() {
+    return this.scheme.slice();
+  }
+  addnewscheme(scheme: Scheme[]) {
+    this.scheme = scheme.concat(this.scheme)
+    this.schemeChange.emit(this.scheme)
   }
 }

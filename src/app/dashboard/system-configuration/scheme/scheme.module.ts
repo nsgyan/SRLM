@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { SchemeRoutingModule } from './scheme-routing.module';
 import { AddSchemeComponent } from './add-scheme/add-scheme.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SchemeComponent } from './scheme.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [SchemeComponent,
     AddSchemeComponent
   ],
   imports: [

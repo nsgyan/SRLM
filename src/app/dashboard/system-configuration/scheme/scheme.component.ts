@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Scheme } from 'src/app/shared/data.model';
+import { DataService } from 'src/app/shared/data.service';
 
 @Component({
   selector: 'app-scheme',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchemeComponent implements OnInit {
 
-  constructor() { }
+  scheme: any
+  constructor(private data: DataService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.scheme = this.data.getscheme()
+    console.log(this.scheme);
+    this.data.schemeChange.subscribe((scheme: Scheme[]) => {
+      this.scheme = scheme
+      console.log(scheme);
+
+    })
+  }
+  addlimit() {
+    this.router.navigate(['/dashboard/system-configuration/scheme/add'])
+  }
+
+  addScheme() {
+
   }
 
 }
