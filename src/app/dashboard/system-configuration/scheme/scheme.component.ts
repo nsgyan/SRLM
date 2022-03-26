@@ -23,12 +23,10 @@ export class SchemeComponent implements OnInit {
 
     })
   }
-  addlimit() {
+  addScheme() {
     this.router.navigate(['/dashboard/system-configuration/scheme/add'])
   }
 
-  addScheme() {
 
-  }
 
 }
