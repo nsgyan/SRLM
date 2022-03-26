@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Agency, Bank, Designation, Office, Officer, VendorService, VendorType } from './data.model';
+import { Agency, Bank, Designation, Office, Officer, SchemeLimitSetting, VendorService, VendorType } from './data.model';
 
 
 @Injectable({
@@ -116,6 +116,13 @@ private designation:Designation[]=[
     new Bank('IDBI Bank'),
 
   ]
+  schemeLimitSettingChange = new EventEmitter<SchemeLimitSetting[]>()
+  private schemeLimitSetting: SchemeLimitSetting[] = [
+    new SchemeLimitSetting('NRLM', 'UP175', 'abcd', 'abcd', 'All Districts', '234,251,250.00', '163,975,875.00', '70,275,375.00'),
+    new SchemeLimitSetting('RSETI', 'UP172', 'abcd', 'abcd', 'All Districts', '235,878,728.00', '165,115,109.60', '70,763,618.40'),
+    new SchemeLimitSetting('MKSP', 'UP171', 'abcd', 'abcd', 'All Districts', '67,457,456.00', '47,220,219.20', '20,237,236.80'),
+    new SchemeLimitSetting('SVEP', 'UP174', 'abcd', 'abcd', 'All Districts', '1,641,343.20', '163,975,875.00', '703,432.80'),
+  ]
 
 
   constructor() { }
@@ -173,5 +180,13 @@ private designation:Designation[]=[
   addnewBank(bank: Bank[]) {
     this.bank = bank.concat(this.bank)
     this.bankChange.emit(this.bank.slice());
+  }
+
+  getschemeLimit() {
+    return this.schemeLimitSetting.slice();
+  }
+  addnewschemeLimit(schemeLimit: SchemeLimitSetting[]) {
+    this.schemeLimitSetting = schemeLimit.concat(this.schemeLimitSetting)
+    this.schemeLimitSettingChange.emit(this.schemeLimitSetting)
   }
 }

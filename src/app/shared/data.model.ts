@@ -129,3 +129,33 @@ export class Bank {
     }
 
 }
+
+
+export class SchemeLimitSetting {
+    name: String;
+    schemeId: String;
+    componentID: String;
+    subComponentID: String;
+    district: String;
+    limitAllocationAmount: string
+    stateShare: String
+    centralShare: String
+    constructor(name: String = '',
+        schemeId: String = '',
+        componentID: String = '',
+        subComponentID: String = '',
+        district: String = '',
+        limitAllocationAmount: string = '',
+        stateShare: String = '',
+        centralShare: String = '') {
+        this.name = name,
+            this.schemeId = schemeId
+        this.componentID = componentID
+        this.subComponentID = subComponentID
+        this.district = district
+        this.limitAllocationAmount = limitAllocationAmount
+        this.stateShare = stateShare
+        this.centralShare = centralShare
+    }
+
+}
