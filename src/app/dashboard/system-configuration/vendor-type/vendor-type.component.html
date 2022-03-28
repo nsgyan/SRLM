@@ -74,7 +74,7 @@
                       </tr>
                     </thead>
                     <tbody >
-                    <tr *ngFor="let item of vendorType; let i = index ">
+                    <tr *ngFor="let item of vendorType; let i = index" (click)="addNewVendorType()">
                         <td class="text-center">
                           <div>
                             <label>
