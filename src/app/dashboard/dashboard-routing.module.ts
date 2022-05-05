@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
-import { AgencyComponentComponent } from './system-configuration/agency-component/agency-component.component';
 import { BanksComponent } from './system-configuration/banks/banks.component';
 import { DesignationComponent } from './system-configuration/designation/designation.component';
 import { LimitSettingComponent } from './system-configuration/limit-setting/limit-setting.component';

@@ -8,7 +8,6 @@ import { ListviewComponent } from './listview/listview.component';
 import { Listview2Component } from './listview2/listview2.component';
 import { Formview2Component } from './formview2/formview2.component';
 import { UserComponent } from './user/user.component';
-import { AgencyComponentComponent } from './dashboard/system-configuration/agency-component/agency-component.component';
 import { DesignationComponent } from './dashboard/system-configuration/designation/designation.component';
 import { OfficeComponent } from './dashboard/system-configuration/office/office.component';
 import { OfficerComponent } from './dashboard/system-configuration/officer/officer.component';

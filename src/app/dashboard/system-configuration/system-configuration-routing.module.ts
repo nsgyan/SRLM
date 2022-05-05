@@ -30,10 +30,7 @@ const routes: Routes = [
     path: 'vendorService',
     loadChildren: () => import('./vendor-service/vendor-service.module').then(m => m.VendorServiceModule)
   },
-  {
-    path: 'agencyComponent',
-    loadChildren: () => import('./agency-component/agency-component.module').then(m => m.AgencyComponentModule)
-  },
+  
   {
     path: 'bank',
     loadChildren: () => import('./banks/banks.module').then(m => m.BanksModule)
