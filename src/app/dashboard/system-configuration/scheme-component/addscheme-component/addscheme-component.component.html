@@ -4,7 +4,7 @@
         <div class="bg-red lter b-b wrapper-md">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                    <h3 class="m-n font-thin text-white" >Add Scheme/Agency</h3>
+                    <h3 class="m-n font-thin text-white" >Add Scheme</h3>
                 </div>
             </div>
         </div>
@@ -12,41 +12,45 @@
         <div class="wrapper-md">
             <div class="panel b-a">
                 <div class="panel-body">
-                    <form [formGroup]="schemeForm" role="form" autocomplete="off">
+                    <form role="form" autocomplete="off">
                         <div class="row">
                             <div class="col-md-12">
                                 <legend>
-                                    <span class="font-weight-600">Scheme/Agency Information</span>
+                                    <span class="font-weight-600">Scheme Information</span>
                                 </legend>
                             </div>
                             
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <input name="type"  type="radio" id="scheme"  class="mx-4 " (click)="toggle('Scheme')" >
-                                    <label class="control-label font-weight-600" style="margin:0 12px"  styfor="scheme">Scheme</label>
-                                    <input name="type"  type="radio"  class="mx-4 "  (click)="toggle('Agency')">
-                                    <label class="control-label font-weight-600"  style="margin:0 12px"  >Agency</label>
-                                </div>
-                            </div>
-                            <div class="col-md-12" *ngIf="type">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">{{type}} Code</label>
+                                    <label class="control-label font-weight-600">Scheme Code</label>
                                     <input formControlName="schemeCode"  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
-                            <div class="col-md-12" *ngIf="type">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">{{type}} Name</label>
+                                    <label class="control-label font-weight-600"> Component Code</label>
                                     <input formControlName="schemeName" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
-                            <div class="col-md-12" *ngIf="type">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">{{type}} description</label>
+                                    <label class="control-label font-weight-600"> Component Name</label>
                                     <input formControlName="schemeComponentName" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
-                           
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Component Description</label>
+                                    <input formControlName="schemeClassificationHeads"  type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600"> Component Classification</label>
+                                    <input formControlName="schemeClassification"  type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                          
 
                         </div>
                         <div class="clearfix"></div>
@@ -64,3 +68,6 @@
         </div>
     </div>
 </div>
+
+
+

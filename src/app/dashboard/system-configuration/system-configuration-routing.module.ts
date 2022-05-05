@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./scheme/scheme.module').then(m => m.SchemeModule)
   },
   {
+    path: 'schemeComponent',
+    loadChildren: () => import('./scheme-component/scheme-component.module').then(m => m.SchemeComponentModule)
+  },
+  {
     path: 'office',
     loadChildren: () => import('./office/office.module').then(m => m.OfficeModule)
   },

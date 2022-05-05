@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Designation } from 'src/app/shared/data.model';
 import { DataService } from 'src/app/shared/data.service';
 import { ToasterService } from 'src/app/shared/toaster.service';
 
 @Component({
-  selector: 'app-add-scheme',
-  templateUrl: './add-scheme.component.html',
-  styleUrls: ['./add-scheme.component.css']
+  selector: 'app-addscheme-component',
+  templateUrl: './addscheme-component.component.html',
+  styleUrls: ['./addscheme-component.component.css']
 })
-export class AddSchemeComponent implements OnInit {
+export class AddschemeComponentComponent implements OnInit {
   schemeForm: FormGroup;
-  type:any;
 
   constructor(private formBuilder: FormBuilder,
     private data: DataService,
@@ -40,13 +38,10 @@ export class AddSchemeComponent implements OnInit {
     // console.log(designation);
     // this.data.addnewdesignation(designation)
     this.toster.showSuccess('New Scheme Successfully Added')
-    this.router.navigate(['/dashboard/system-configuration/scheme'])
+    this.router.navigate(['/dashboard/system-configuration/schemeComponent'])
   }
   cancel() {
-    this.router.navigate(['/dashboard/system-configuration/scheme'])
-  }
-  toggle(type:string){
-this.type=type;
+    this.router.navigate(['/dashboard/system-configuration/schemeComponent'])
   }
 
 }
