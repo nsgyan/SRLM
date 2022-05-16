@@ -62,13 +62,21 @@
                                           <div class="">
                                               <div class="form-group">
                                                   <input type="text" class="form-control user-bg" id="uername"
-                                                      placeholder="Email" formControlName="email">
+                                                      placeholder="username" formControlName="username">
+                                                <div *ngIf="loginForm.controls['username']?.hasError('required') && (loginForm.controls['username']?.touched || submited)">
+<span style="color:red">
+    User name <Strong>required</Strong>
+</span>
+                                                </div>
                                               </div>
                                           </div>
                                           <div class="">
                                               <div class="form-group">
                                                   <input type="password" class="form-control user-password" id=""
                                                       placeholder="Password" formControlName="password">
+                                                      <div *ngIf="loginForm.controls['password']?.hasError('required') && (loginForm.controls['password'].touched||submited)">
+                                                          <span style="color: red;">Password  <strong>Required</strong> </span>
+                                                      </div>
                                               </div>
                                           </div>
                                         </form>
