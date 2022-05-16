@@ -58,7 +58,7 @@
                                   <h2>Login</h2>
                                   <p>Login to your PBMS system portal</p>
                                   <div class="login-sec-con">
-                                      <form method="post" formControlName="myForm">
+                                      <form method="post" [formGroup]="loginForm">
                                           <div class="">
                                               <div class="form-group">
                                                   <input type="text" class="form-control user-bg" id="uername"
@@ -71,10 +71,13 @@
                                                       placeholder="Password" formControlName="password">
                                               </div>
                                           </div>
+                                        </form>
                                           <div class="col-md-12">
-                                              <div class="form-group">
-                  <re-captcha siteKey="6LcZYWYeAAAAAFFzV_pFdZBksDadFNggfpxTZMfS"></re-captcha>
-                </div>
+                                            <div class="form-group">
+                                                <re-captcha (resolved)="resolved($event)"
+                                                    siteKey="6LcZYWYeAAAAAFFzV_pFdZBksDadFNggfpxTZMfS">
+                                                </re-captcha>
+                                            </div>
                 
                                           </div>
                                           <!-- <span class="msg-error error text-danger">hello</span> -->
@@ -83,7 +86,7 @@
                                               <!-- <button type="button"
                                                   class="btn btn-primary btn-lg btn-block login_btn"
                                                   id="btn-validate">Login</button> -->
-                                                  <a href="dashboard" class="btn btn-primary btn-lg login_btn" style="width: 100%; text-decoration: none;">Login</a>
+                                                  <a (click)="login()" class="btn btn-primary btn-lg login_btn" style="width: 100%; text-decoration: none;">Login</a>
                                           </div>
 
                                           <div>
@@ -103,7 +106,7 @@
                                                       target="_blank">Terms of
                                                       Service</a> apply.</p>
                                           </div>
-                                      </form>
+
 
                                   </div>
                               </div>

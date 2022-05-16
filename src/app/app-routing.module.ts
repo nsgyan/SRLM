@@ -16,16 +16,18 @@ import { VendorServiceComponent } from './dashboard/system-configuration/vendor-
 import { VendorTypeComponent } from './dashboard/system-configuration/vendor-type/vendor-type.component';
 import { BanksComponent } from './dashboard/system-configuration/banks/banks.component';
 import { LimitSettingComponent } from './dashboard/system-configuration/limit-setting/limit-setting.component';
+import { AuthGuard } from './shared/service/auth.guard';
 
 const routes: Routes = [
   { path: 'signUp', component: SignUpComponent },
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent, },
   {
     path: 'dashboard',
     component: DashboardComponent,
     children:[
     {  path: '',
-      loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+      canActivate:[AuthGuard]
 }
     ]
      
