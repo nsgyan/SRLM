@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 if(this.loginForm.valid&& this.captcha){
 this.httpService.login({username:this.loginForm.value.username,
 password:this.loginForm.value.password}).subscribe((data:any)=>{
-  this.localStorage.set('token',data.data.token)
+  this.localStorage.set('token', data.token)
 this.routes.navigate(['dashboard'])
 
 })}
