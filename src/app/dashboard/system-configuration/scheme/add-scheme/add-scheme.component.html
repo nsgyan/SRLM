@@ -28,25 +28,59 @@
                                     <label class="control-label font-weight-600"  style="margin:0 12px"  >Agency</label>
                                 </div>
                             </div>
-                            <div class="col-md-12" *ngIf="type">
+                            <div class="col-md-4" *ngIf="type">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">{{type}} Code</label>
                                     <input formControlName="schemeCode"  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
-                            <div class="col-md-12" *ngIf="type">
+                            <div class="col-md-4" *ngIf="type">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">{{type}} Name</label>
                                     <input formControlName="schemeName" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
-                            <div class="col-md-12" *ngIf="type">
+                            <div class="col-md-4" *ngIf="type">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">{{type}} description</label>
-                                    <input formControlName="schemeComponentName" type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">{{type}} Description</label>
+                                    <input formControlName="schemeClassification" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div formGroupName="bankDetails">
+                                <div class="col-md-4" *ngIf="type">
+                                    <div class="form-group">
+                                        <label class="control-label font-weight-600">Account No</label>
+                                        <input formControlName="accountNo" type="text" class="form-control" name="fin_no">
+                                    </div>
+                                </div>
+                                <div class="col-md-4" *ngIf="type">
+                                    <div class="form-group">
+                                        <label class="control-label font-weight-600">Agency Name As Per Bank</label>
+                                        <input formControlName="agencyName" type="text" class="form-control" name="fin_no">
+                                    </div>
+                                </div>
+                                <div class="col-md-4" *ngIf="type">
+                                    <div class="form-group">
+                                        <label class="control-label font-weight-600">Bank Name</label>
+                                        <input formControlName="bankName"  type="text" class="form-control" name="fin_no">
+                                    </div>
+                                </div>
+                                <div class="col-md-4" *ngIf="type">
+                                    <div class="form-group">
+                                        <label class="control-label font-weight-600">Branch Name</label>
+                                        <input formControlName="branchName" type="text" class="form-control" name="fin_no">
+                                    </div>
+                                </div>
+                                <div class="col-md-4" *ngIf="type">
+                                    <div class="form-group">
+                                        <label class="control-label font-weight-600">Branch Address</label>
+                                        <input formControlName="
+                                        " type="text" class="form-control" name="fin_no">
+                                    </div>
                                 </div>
                             </div>
                            
+                         
 
                         </div>
                         <div class="clearfix"></div>

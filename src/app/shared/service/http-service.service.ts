@@ -12,4 +12,6 @@ export class HttpServiceService {
   login(data:any){
    return this.httpClient.post(Globals.route.login,data)
   }
+
+  addNewScheme(scheme: any) { return this.httpClient.post(Globals.route.addNewScheme, scheme) }
 }
