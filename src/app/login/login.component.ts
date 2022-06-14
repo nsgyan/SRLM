@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../shared/service/http-service.service';
-import { LocalstorageService } from '../shared/service/localstorage.service';
 import Swal from 'sweetalert2';
+import { LocalstorageService } from '../shared/service/localstorage.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private routes:Router) {
       this.localStorage.clearLocalStorage()
     this.loginForm=this.fb.group({
-      username:['',[Validators.required]],
+      userName:['',[Validators.required]],
       password:['',Validators.required]
     })
   }
@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
   }
   login(){ 
 if(this.loginForm.valid&& this.captcha){
-this.httpService.login({username:this.loginForm.value.username,
+this.httpService.login({userName:this.loginForm.value.userName,
 password:this.loginForm.value.password}).subscribe((data:any)=>{
+  Swal.fire('',data.message, 'success')
   this.localStorage.set('token', data.token)
 this.routes.navigate(['dashboard'])
 

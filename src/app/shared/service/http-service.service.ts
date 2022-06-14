@@ -14,4 +14,8 @@ export class HttpServiceService {
   }
 
   addNewScheme(scheme: any) { return this.httpClient.post(Globals.route.addNewScheme, scheme) }
+
+  getScheme(){
+    return this.httpClient.get(Globals.route.scheme)
+  }
 }

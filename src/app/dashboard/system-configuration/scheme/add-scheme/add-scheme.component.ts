@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Designation } from 'src/app/shared/data.model';
+import Swal from 'sweetalert2';
 import { DataService } from 'src/app/shared/data.service';
 import { HttpServiceService } from 'src/app/shared/service/http-service.service';
 
@@ -20,9 +20,9 @@ export class AddSchemeComponent implements OnInit {
     private httpService: HttpServiceService
   ) {
     this.schemeForm = this.formBuilder.group({
-      schemeCode: [''],
-      schemeName: [''],
-      schemeClassification: [''],
+      schemeCode: ['', Validators.required],
+      schemeName: ['', Validators.required],
+      schemeClassification: ['', Validators.required],
       bankDetails: this.formBuilder.group({
         agencyName: ['', Validators.required],
         bankName: ['', Validators.required],
@@ -39,17 +39,34 @@ export class AddSchemeComponent implements OnInit {
 
   onSubmit() {
     console.log(this.schemeForm);
+    if(this.schemeForm.valid)
 
-    this.httpService.addNewScheme({
+   { this.httpService.addNewScheme({
       schemeCode: this.schemeForm.value.schemeCode,
       schemeName: this.schemeForm.value.schemeName,
       schemeClassification: this.schemeForm.value.schemeClassification,
       bankDetails: this.schemeForm.value.bankDetails,
 
-    }).subscribe(item => {
-      console.log(item);
+    }).subscribe((item:any) => {
+      Swal.fire('',item.message, 'success')
+       this.router.navigate(['/dashboard/system-configuration/scheme'])
 
-    })
+    },(err)=>{
+      
+      Swal.fire(
+        'Error!',
+        err.error,
+        'error'
+      )
+    })}
+    else{
+      Swal.fire(
+        'Error!',
+        'Please Fill Required Field',
+        'error'
+      )
+
+    }
     // const designation = [new Designation(
     //   this.schemeForm.value.designationName,
     //   this.schemeForm.value.reportingTo,

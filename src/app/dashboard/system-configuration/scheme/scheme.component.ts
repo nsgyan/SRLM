@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Scheme } from 'src/app/shared/data.model';
 import { DataService } from 'src/app/shared/data.service';
+import { HttpServiceService } from 'src/app/shared/service/http-service.service';
 
 @Component({
   selector: 'app-scheme',
@@ -11,8 +12,14 @@ import { DataService } from 'src/app/shared/data.service';
 export class SchemeComponent implements OnInit {
 
   scheme: any
-  constructor(private data: DataService,
-    private router: Router) { }
+  constructor(
+    private data: DataService,
+    private router: Router,
+    private httpService: HttpServiceService) { 
+      this.httpService.getScheme().subscribe((scheme)=>{
+        console.log(scheme,'hello');  
+      })
+    }
 
   ngOnInit(): void {
     this.scheme = this.data.getscheme()

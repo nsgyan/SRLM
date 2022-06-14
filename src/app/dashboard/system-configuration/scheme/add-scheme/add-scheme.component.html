@@ -16,66 +16,60 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <legend>
-                                    <span class="font-weight-600">Scheme/Agency Information</span>
+                                    <span class="font-weight-600">Scheme Information</span>
                                 </legend>
                             </div>
                             
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <input name="type"  type="radio" id="scheme"  class="mx-4 " (click)="toggle('Scheme')" >
-                                    <label class="control-label font-weight-600" style="margin:0 12px"  styfor="scheme">Scheme</label>
-                                    <input name="type"  type="radio"  class="mx-4 "  (click)="toggle('Agency')">
-                                    <label class="control-label font-weight-600"  style="margin:0 12px"  >Agency</label>
-                                </div>
+   
                             </div>
-                            <div class="col-md-4" *ngIf="type">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">{{type}} Code</label>
+                                    <label class="control-label font-weight-600">Scheme Code</label>
                                     <input formControlName="schemeCode"  type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
-                            <div class="col-md-4" *ngIf="type">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">{{type}} Name</label>
+                                    <label class="control-label font-weight-600">Scheme Name</label>
                                     <input formControlName="schemeName" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
-                            <div class="col-md-4" *ngIf="type">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">{{type}} Description</label>
+                                    <label class="control-label font-weight-600">Scheme Description</label>
                                     <input formControlName="schemeClassification" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div formGroupName="bankDetails">
-                                <div class="col-md-4" *ngIf="type">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label font-weight-600">Account No</label>
                                         <input formControlName="accountNo" type="text" class="form-control" name="fin_no">
                                     </div>
                                 </div>
-                                <div class="col-md-4" *ngIf="type">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label font-weight-600">Agency Name As Per Bank</label>
                                         <input formControlName="agencyName" type="text" class="form-control" name="fin_no">
                                     </div>
                                 </div>
-                                <div class="col-md-4" *ngIf="type">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label font-weight-600">Bank Name</label>
                                         <input formControlName="bankName"  type="text" class="form-control" name="fin_no">
                                     </div>
                                 </div>
-                                <div class="col-md-4" *ngIf="type">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label font-weight-600">Branch Name</label>
                                         <input formControlName="branchName" type="text" class="form-control" name="fin_no">
                                     </div>
                                 </div>
-                                <div class="col-md-4" *ngIf="type">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label font-weight-600">Branch Address</label>
-                                        <input formControlName="
-                                        " type="text" class="form-control" name="fin_no">
+                                        <input formControlName="branchAddress" type="text" class="form-control" name="fin_no">
                                     </div>
                                 </div>
                             </div>
