@@ -15,7 +15,7 @@ import { HttpServiceService } from 'src/app/shared/service/http-service.service'
   styleUrls: ['./scheme.component.css']
 })
 export class SchemeComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  displayedColumns: string[] = ['id', 'schemeCode', 'schemeName', 'schemeClassification','agencyName','bankName','accountNo'];
 dataSource!: MatTableDataSource<any>;
 
 @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -27,28 +27,33 @@ dataSource!: MatTableDataSource<any>;
     private data: DataService,
     private router: Router,
     private httpService: HttpServiceService) {
-      this.httpService.getScheme().subscribe((scheme)=>{
-        console.log(scheme,'hello');
+      this.httpService.getScheme().subscribe((scheme:any)=>{
+        this.scheme =scheme.schemes
+        console.log(this.scheme);
+
+        // this.dataSource = new MatTableDataSource(scheme);
+        // this.dataSource.paginator = this.paginator;
+        // this.dataSource.sort = this.sort;
       })
     }
 
   ngOnInit(): void {
-    this.scheme = this.data.getscheme()
-    console.log(this.scheme);
-    this.data.schemeChange.subscribe((scheme: Scheme[]) => {
-      this.scheme = scheme
-      console.log(scheme);
+    // this.scheme = this.data.getscheme()
+    // console.log(this.scheme);
+    // this.data.schemeChange.subscribe((scheme: Scheme[]) => {
+    //   this.scheme = scheme
+    //   console.log(scheme);
 
-    })
+    // })
   }
   addScheme() {
     this.router.navigate(['/dashboard/system-configuration/scheme/add'])
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  // applyFilter(event: Event) {
+  //   const filterValue = (event.target as HTMLInputElement).value;
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+  // }
 
 
 
