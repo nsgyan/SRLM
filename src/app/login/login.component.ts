@@ -27,13 +27,14 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
   }
   resolved(captchaResponse: any) {
     this.captcha = captchaResponse;
   }
-  login(){ 
-if(this.loginForm.valid&& this.captcha){
+  login(){
+    this.routes.navigate(['dashboard'])
+if(this.loginForm.valid){
 this.httpService.login({userName:this.loginForm.value.userName,
 password:this.loginForm.value.password}).subscribe((data:any)=>{
   Swal.fire('',data.message, 'success')
@@ -57,7 +58,7 @@ else{
     'error'
   )
 }
-   
+
   }
 
 
