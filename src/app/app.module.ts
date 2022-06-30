@@ -43,7 +43,8 @@ import { TokenInterceptor } from './shared/service/token.interceptor';
     HttpClientJsonpModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    RecaptchaModule
+    RecaptchaModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     {
