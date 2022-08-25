@@ -5,6 +5,8 @@ export class Globals {
         'login': Globals.server + 'user/login',
         'addNewScheme': Globals.server + 'systemConfiguration/scheme/add',
         'scheme': Globals.server + 'systemConfiguration/scheme',
-        'checkSchemeCode': Globals.server + 'systemConfiguration/checkSchemeCode'
+        'schemeById': Globals.server + 'systemConfiguration/schemeById',
+        'checkSchemeCode': Globals.server + 'systemConfiguration/checkSchemeCode',
+        'deleteScheme': Globals.server + 'systemConfiguration/deleteScheme'
     };
 }

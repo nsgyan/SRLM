@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddSchemeComponent } from './add-scheme/add-scheme.component';
+import { EditschemeComponent } from './editscheme/editscheme.component';
 import { SchemeComponent } from './scheme.component';
 
 const routes: Routes = [
   { path: '', component: SchemeComponent },
   { path: 'add', component: AddSchemeComponent },
+  { path: 'edit/:Id', component: EditschemeComponent },
 ];
 
 @NgModule({

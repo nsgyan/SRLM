@@ -10,9 +10,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { EditschemeComponent } from './editscheme/editscheme.component';
 @NgModule({
   declarations: [SchemeComponent,
-    AddSchemeComponent
+    AddSchemeComponent,
+    EditschemeComponent
   ],
   imports: [
     CommonModule,

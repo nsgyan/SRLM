@@ -14,11 +14,20 @@ export class HttpServiceService {
   }
 
   addNewScheme(scheme: any) { return this.httpClient.post(Globals.route.addNewScheme, scheme) }
-  
+
 checkSchemeCode(schemeCode:any){
   return this.httpClient.post(Globals.route.checkSchemeCode,schemeCode)
 }
   getScheme(){
     return this.httpClient.get(Globals.route.scheme)
+  }
+  updateScheme(id:any,formdata:any){
+    return this.httpClient.patch(`${Globals.route.scheme}/${id}`,formdata)
+  }
+  getSchemeById(id:string){
+return this.httpClient.get(`${Globals.route.schemeById}/${id}`)
+  }
+  deleteScheme(id:string){
+    return this.httpClient.delete(`${Globals.route.deleteScheme}/${id}`)
   }
 }
