@@ -13,7 +13,7 @@ import { HttpServiceService } from 'src/app/shared/service/http-service.service'
 export class AddSchemeComponent implements OnInit {
   schemeForm: FormGroup;
   type:any;
-
+  submited:boolean=false
   constructor(private formBuilder: FormBuilder,
     private data: DataService,
     private router: Router,
@@ -22,14 +22,8 @@ export class AddSchemeComponent implements OnInit {
     this.schemeForm = this.formBuilder.group({
       schemeCode: ['', Validators.required],
       schemeName: ['', Validators.required],
-      schemeClassification: ['', Validators.required],
-      bankDetails: this.formBuilder.group({
-        agencyName: ['', Validators.required],
-        bankName: ['', Validators.required],
-        accountNo: ['', Validators.required],
-        branchName: ['', Validators.required],
-        branchAddress: ['', Validators.required],
-      })
+      schemeDescription: ['', Validators.required],
+
 
     })
   }
@@ -37,22 +31,38 @@ export class AddSchemeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log(this.schemeForm);
-    if(this.schemeForm.valid)
+  checkSchemeCode(event:any){
+    const schemeCode = event.target.value ? event.target.value.toUpperCase() : this.schemeForm.get('schemeCode')?.value
+    this.httpService.checkSchemeCode({schemeCode:schemeCode}).subscribe((data:any)=>{
+      this.schemeForm.get('schemeCode')?.clearValidators()
+      this.schemeForm.get('schemeCode')?.setValidators(Validators.required)
+      this.schemeForm.get('schemeCode')?.updateValueAndValidity()
 
-   { this.httpService.addNewScheme({
+    },err=>{
+      this.schemeForm.get('schemeCode')?.setErrors({isExist:true})
+      // this.schemeForm.get('schemeCode')?.updateValueAndValidity()
+      console.log( this.schemeForm.get('schemeCode')?.valid)
+    })
+  }
+
+
+  onSubmit() {
+
+    if(this.schemeForm.valid)
+   {
+    this.submited=false
+    this.httpService.addNewScheme({
       schemeCode: this.schemeForm.value.schemeCode,
       schemeName: this.schemeForm.value.schemeName,
-      schemeClassification: this.schemeForm.value.schemeClassification,
-      bankDetails: this.schemeForm.value.bankDetails,
+      schemeDescription: this.schemeForm.value.schemeDescription,
+
 
     }).subscribe((item:any) => {
       Swal.fire('',item.message, 'success')
        this.router.navigate(['/dashboard/system-configuration/scheme'])
 
     },(err)=>{
-      
+
       Swal.fire(
         'Error!',
         err.error,
@@ -60,6 +70,7 @@ export class AddSchemeComponent implements OnInit {
       )
     })}
     else{
+      this.submited=true
       Swal.fire(
         'Error!',
         'Please Fill Required Field',
@@ -79,6 +90,41 @@ export class AddSchemeComponent implements OnInit {
   cancel() {
     this.router.navigate(['/dashboard/system-configuration/scheme'])
   }
+  onSaveNew(){
+    if(this.schemeForm.valid)
+    {
+     this.submited=false
+     this.httpService.addNewScheme({
+       schemeCode: this.schemeForm.value.schemeCode,
+       schemeName: this.schemeForm.value.schemeName,
+       schemeDescription: this.schemeForm.value.schemeDescription,
+
+
+     }).subscribe((item:any) => {
+       Swal.fire('',item.message, 'success')
+       this.schemeForm.reset()
+        // this.router.navigate(['/dashboard/system-configuration/scheme'])
+
+     },(err)=>{
+
+       Swal.fire(
+         'Error!',
+         err.error,
+         'error'
+       )
+     })}
+     else{
+       this.submited=true
+       Swal.fire(
+         'Error!',
+         'Please Fill Required Field',
+         'error'
+       )
+
+     }
+  }
+
+
   toggle(type:string){
 this.type=type;
   }

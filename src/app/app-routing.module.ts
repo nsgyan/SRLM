@@ -27,10 +27,10 @@ const routes: Routes = [
     children:[
     {  path: '',
       loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-      canActivate:[AuthGuard]
+  
 }
     ]
-     
+
   },
   { path: 'list', component: ListviewComponent },
   { path: 'form', component: FormviewComponent },

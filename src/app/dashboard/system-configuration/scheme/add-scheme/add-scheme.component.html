@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="wrapper-md">
             <div class="panel b-a">
                 <div class="panel-body">
@@ -19,29 +19,33 @@
                                     <span class="font-weight-600">Scheme Information</span>
                                 </legend>
                             </div>
-                            
+
                             <div class="col-md-12">
-   
+
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Scheme Code</label>
-                                    <input formControlName="schemeCode"  type="text" class="form-control" name="fin_no">
+                                    <input formControlName="schemeCode"  type="text" (focusout)="checkSchemeCode($event)" class="form-control" name="fin_no">
+                                    <p *ngIf="schemeForm.get('schemeCode')?.hasError('required')&&(schemeForm.controls['schemeCode']?.touched ||submited)" style="color: red;">Scheme Code Required</p>
+                                    <p *ngIf="schemeForm.get('schemeCode')?.hasError('isExist')&&!schemeForm.get('schemeCode')?.hasError('required')" style="color: red;">Scheme Code Already Exist</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Scheme Name</label>
                                     <input formControlName="schemeName" type="text" class="form-control" name="fin_no">
+                                    <p *ngIf="schemeForm.get('schemeName')?.hasError('required')&&(schemeForm.controls['schemeName']?.touched ||submited)" style="color: red;">Scheme Name Required</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Scheme Description</label>
-                                    <input formControlName="schemeClassification" type="text" class="form-control" name="fin_no">
+                                    <input formControlName="schemeDescription" type="text" class="form-control" name="fin_no">
+                                    <p *ngIf="schemeForm.get('schemeDescription')?.hasError('required')&&(schemeForm.controls['schemeDescription']?.touched ||submited)" style="color: red;">Scheme Description Required</p>
                                 </div>
                             </div>
-                            <div formGroupName="bankDetails">
+                            <!-- <div formGroupName="bankDetails">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label font-weight-600">Account No</label>
@@ -72,9 +76,9 @@
                                         <input formControlName="branchAddress" type="text" class="form-control" name="fin_no">
                                     </div>
                                 </div>
-                            </div>
-                           
-                         
+                            </div> -->
+
+
 
                         </div>
                         <div class="clearfix"></div>
@@ -82,7 +86,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a class="btn m-b-xs btn-md btn-success"  (click)="onSubmit()">Save</a>
-                                <a class="btn m-b-xs btn-md btn-primary"  (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-primary"  (click)="onSaveNew()">Save and New</a>
                                 <a class="btn m-b-xs btn-md btn-default"  (click)="cancel()">Cancel</a>
                             </div>
                         </div>

@@ -14,7 +14,10 @@ export class HttpServiceService {
   }
 
   addNewScheme(scheme: any) { return this.httpClient.post(Globals.route.addNewScheme, scheme) }
-
+  
+checkSchemeCode(schemeCode:any){
+  return this.httpClient.post(Globals.route.checkSchemeCode,schemeCode)
+}
   getScheme(){
     return this.httpClient.get(Globals.route.scheme)
   }
