@@ -7,6 +7,11 @@ export class Globals {
         'scheme': Globals.server + 'systemConfiguration/scheme',
         'schemeById': Globals.server + 'systemConfiguration/schemeById',
         'checkSchemeCode': Globals.server + 'systemConfiguration/checkSchemeCode',
-        'deleteScheme': Globals.server + 'systemConfiguration/deleteScheme'
+        'deleteScheme': Globals.server + 'systemConfiguration/deleteScheme',
+        'addNewschemeType': Globals.server + 'systemConfiguration/schemeType/add',
+        'schemeType': Globals.server + 'systemConfiguration/schemeType',
+        'schemeTypeById': Globals.server + 'systemConfiguration/schemeTypeById',
+        'checkSchemeType': Globals.server + 'systemConfiguration/checkSchemeType',
+        'deleteSchemeType': Globals.server + 'systemConfiguration/deleteSchemeType'
     };
 }

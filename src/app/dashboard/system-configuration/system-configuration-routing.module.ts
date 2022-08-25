@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./scheme/scheme.module').then(m => m.SchemeModule)
   },
   {
+    path: 'schemeType',
+    loadChildren: () => import('./scheme-type/scheme-type.module').then(m => m.SchemeTypeModule)
+  },
+  {
     path: 'schemeComponent',
     loadChildren: () => import('./scheme-component/scheme-component.module').then(m => m.SchemeComponentModule)
   },
@@ -30,7 +34,7 @@ const routes: Routes = [
     path: 'vendorService',
     loadChildren: () => import('./vendor-service/vendor-service.module').then(m => m.VendorServiceModule)
   },
-  
+
   {
     path: 'bank',
     loadChildren: () => import('./banks/banks.module').then(m => m.BanksModule)
