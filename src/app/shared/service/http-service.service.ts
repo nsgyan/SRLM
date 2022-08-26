@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Globals } from './global.constant';
 
 @Injectable({
@@ -106,5 +107,21 @@ return this.httpClient.get(`${Globals.route.schemeBudgetById}/${id}`)
   }
   deleteSchemeBudget(id:string){
     return this.httpClient.delete(`${Globals.route.deleteSchemeBudget}/${id}`)
+  }
+  //upload
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    const request = new HttpRequest(
+      'POST',
+      Globals.route.upload,
+      formData,
+      {
+        reportProgress: false,
+        responseType: 'text',
+      }
+    );
+
+    return this.httpClient.request(request);
   }
 }

@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./scheme-type/scheme-type.module').then(m => m.SchemeTypeModule)
   },
   {
+    path: 'schemeBudget',
+    loadChildren: () => import('./schem-budget/schem-budget.module').then(m => m.SchemBudgetModule)
+  },
+  {
     path: 'schemeComponent',
     loadChildren: () => import('./scheme-component/scheme-component.module').then(m => m.SchemeComponentModule)
   },
