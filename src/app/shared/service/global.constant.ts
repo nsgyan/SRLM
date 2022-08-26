@@ -11,6 +11,8 @@ export class Globals {
         'schemeById': Globals.server + 'systemConfiguration/schemeById',
         'checkSchemeCode': Globals.server + 'systemConfiguration/checkSchemeCode',
         'deleteScheme': Globals.server + 'systemConfiguration/deleteScheme',
+
+        //schemeType
         'addNewschemeType': Globals.server + 'systemConfiguration/schemeType/add',
         'schemeType': Globals.server + 'systemConfiguration/schemeType',
         'schemeTypeById': Globals.server + 'systemConfiguration/schemeTypeById',
@@ -28,6 +30,12 @@ export class Globals {
         'officerById': Globals.server + 'systemConfiguration/officerById',
         // 'checkVendorTypeCode': Globals.server + 'systemConfiguration/checkVendorTypeCode',
         'deleteOfficer': Globals.server + 'systemConfiguration/deleteOfficer',
+
+        //schemeBudget
+        'addNewSchemeBudget': Globals.server + 'systemConfiguration/schemeBudget/add',
+        'schemeBudget': Globals.server + 'systemConfiguration/schemeBudget',
+        'schemeBudgetById': Globals.server + 'systemConfiguration/schemeBudget',
+        'deleteSchemeBudget': Globals.server + 'systemConfiguration/deleteSchemeBudget',
 
     };
 }

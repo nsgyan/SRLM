@@ -89,4 +89,22 @@ return this.httpClient.get(`${Globals.route.officerById}/${id}`)
   deleteOfficer(id:string){
     return this.httpClient.delete(`${Globals.route.deleteOfficer}/${id}`)
   }
+
+//SchemeBudget
+
+addNewSchemeBudget(scheme: any) { return this.httpClient.post(Globals.route.addNewSchemeBudget, scheme) }
+
+
+  getSchemeBudget(){
+    return this.httpClient.get(Globals.route.schemeBudget)
+  }
+  updateSchemeBudget(id:any,formdata:any){
+    return this.httpClient.patch(`${Globals.route.schemeBudget}/${id}`,formdata)
+  }
+  getSchemeBudgetById(id:string){
+return this.httpClient.get(`${Globals.route.schemeBudgetById}/${id}`)
+  }
+  deleteSchemeBudget(id:string){
+    return this.httpClient.delete(`${Globals.route.deleteSchemeBudget}/${id}`)
+  }
 }
