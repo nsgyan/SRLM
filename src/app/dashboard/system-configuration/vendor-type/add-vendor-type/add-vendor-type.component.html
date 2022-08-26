@@ -7,7 +7,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="wrapper-md">
             <div class="panel b-a">
                 <div class="panel-body">
@@ -18,23 +18,26 @@
                                     <span class="font-weight-600">Vendor Type Information</span>
                                 </legend>
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Vendor Type Code</label>
                                     <input formControlName="vendorTypeCode" type="text" class="form-control" name="fin_no">
+                                    <p *ngIf="vendorType.get('vendorTypeCode')?.hasError('required')&&(vendorType.controls['vendorTypeCode']?.touched ||submited)" style="color: red;">Vendor Type Code Required</p>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Vendor Type Name</label>
                                     <input  formControlName="vendorTypeName" type="text" class="form-control" name="fin_no">
+                                    <p *ngIf="vendorType.get('vendorTypeName')?.hasError('required')&&(vendorType.controls['vendorTypeName']?.touched ||submited)" style="color: red;">Vendor Type Name Required</p>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Vendor Type Description</label>
                                     <input formControlName="vendorTypeDescription" type="text" class="form-control" name="fin_no">
+                                    <p *ngIf="vendorType.get('vendorTypeDescription')?.hasError('required')&&(vendorType.controls['vendorTypeDescription']?.touched ||submited)" style="color: red;">Vendor Type Description Required</p>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +46,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a class="btn m-b-xs btn-md btn-success" (click)="onSubmit()">Save</a>
-                                <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-primary" (click)="OnSaveNew()">Save and New</a>
                                 <a class="btn m-b-xs btn-md btn-default" (click)="cancel()">Cancel</a>
                             </div>
                         </div>

@@ -1,30 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { VendorType } from 'src/app/shared/data.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/data.service';
 import { HttpServiceService } from 'src/app/shared/service/http-service.service';
-import { ToasterService } from 'src/app/shared/toaster.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-add-vendor-type',
-  templateUrl: './add-vendor-type.component.html',
-  styleUrls: ['./add-vendor-type.component.css']
+  selector: 'app-edit-vendor-type',
+  templateUrl: './edit-vendor-type.component.html',
+  styleUrls: ['./edit-vendor-type.component.css']
 })
-export class AddVendorTypeComponent implements OnInit {
+export class EditVendorTypeComponent implements OnInit {
   vendorType: FormGroup
   submited: boolean=false;
+  id: any;
+  vendorData:any
   constructor(private formBuilder: FormBuilder,
     private data: DataService,
     private router: Router,
-    private httpService: HttpServiceService
+    private httpService: HttpServiceService,
+    private activeRoute:ActivatedRoute
   )  {
     this.vendorType = this.formBuilder.group({
       vendorTypeCode: ['',Validators.required],
       vendorTypeName: ['',Validators.required],
       vendorTypeDescription: ['',Validators.required]
     })
+    this.id= this.activeRoute.snapshot.paramMap.get('id')
+    this.httpService.getvendorTypeById(this.id).subscribe((data:any)=>{
+this.vendorData=data.vendorType
+this.vendorType.get('vendorTypeCode')?.setValue(this.vendorData?.vendorTypeCode)
+this.vendorType.get('vendorTypeCode')?.updateValueAndValidity()
+this.vendorType.get('vendorTypeName')?.setValue(this.vendorData?.vendorTypeName)
+this.vendorType.get('vendorTypeName')?.updateValueAndValidity
+this.vendorType.get('vendorTypeDescription')?.setValue(this.vendorData?.vendorTypeDescription)
+this.vendorType.get('vendorTypeDescription')?.updateValueAndValidity
+    })
+
   }
 
   ngOnInit(): void {
@@ -48,7 +60,7 @@ export class AddVendorTypeComponent implements OnInit {
     if(this.vendorType.valid)
    {
     this.submited=false
-    this.httpService.addNewVendorType({
+    this.httpService.updatevendorType(this.id,{
       vendorTypeCode: this.vendorType.value.vendorTypeCode,
       vendorTypeName: this.vendorType.value.vendorTypeName,
       vendorTypeDescription: this.vendorType.value.vendorTypeDescription,

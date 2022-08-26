@@ -5,6 +5,7 @@ import { OfficerRoutingModule } from './officer-routing.module';
 import { AddOficerComponent } from './add-oficer/add-oficer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfficerComponent } from './officer.component';
+import { ServiceModule } from 'src/app/shared/service/service.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { OfficerComponent } from './officer.component';
     CommonModule,
     OfficerRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceModule
   ]
 })
 export class OfficerModule { }

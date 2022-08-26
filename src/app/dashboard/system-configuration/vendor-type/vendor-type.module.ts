@@ -5,11 +5,13 @@ import { VendorTypeRoutingModule } from './vendor-type-routing.module';
 import { AddVendorTypeComponent } from './add-vendor-type/add-vendor-type.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VendorTypeComponent } from './vendor-type.component';
+import { EditVendorTypeComponent } from './edit-vendor-type/edit-vendor-type.component';
 
 
 @NgModule({
   declarations: [VendorTypeComponent,
-    AddVendorTypeComponent
+    AddVendorTypeComponent,
+    EditVendorTypeComponent
   ],
   imports: [
     CommonModule,

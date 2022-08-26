@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="wrapper-md">
             <div class="panel b-a">
                 <div class="panel-body">
@@ -19,74 +19,89 @@
                                     <span class="font-weight-600">Officer Information</span>
                                 </legend>
                             </div>
-                            
+
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">First Name</label>
-                                    <input formControlName="firstName" type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">First Name*</label>
+                                    <input formControlName="firstName" type="text"  (keypress)="keyPresschar($event)" class="form-control" name="fin_no">
+                                    <p *ngIf="officerForm.get('firstName')?.hasError('required')&&(officerForm.controls['firstName']?.touched||submited)" style="color: red;">First Name Required</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Middle Name</label>
-                                    <input formControlName="middleName" type="text" class="form-control" name="fin_no">
+                                    <input formControlName="middleName" type="text" (keypress)="keyPresschar($event)" class="form-control" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Last Name</label>
-                                    <input formControlName="lastName" type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Last Name*</label>
+                                    <input formControlName="lastName" type="text" (keypress)="keyPresschar($event)" class="form-control" name="fin_no">
+                                    <p *ngIf="officerForm.get('lastName')?.hasError('required')&&(officerForm.controls['lastName']?.touched||submited)" style="color: red;">Last Name Required</p>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Father / Husband Name</label>
+                                  <input formControlName="fatherName" type="text" class="form-control" name="fin_no">
+                                  <p *ngIf="officerForm.get('lastName')?.hasError('required')&&(officerForm.controls['lastName']?.touched||submited)" style="color: red;">Last Name Required</p>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label font-weight-600">DOB</label>
+                                <input formControlName="dob"  type="date" class="form-control" name="fin_no">
+                                <p *ngIf="officerForm.get('dob')?.hasError('required')&&(officerForm.controls['dob']?.touched||submited)" style="color: red;">DOB Required</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label font-weight-600">Gender</label>
+                                <input formControlName="gender" (keypress)="keyPresschar($event)" type="text" class="form-control" name="fin_no">
+                                <p *ngIf="officerForm.get('gender')?.hasError('required')&&(officerForm.controls['gender']?.touched||submited)" style="color: red;">Gender Required</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                              <label class="control-label font-weight-600">Email</label>
+                              <input formControlName="email" type="email" class="form-control" name="fin_no">
+                              <p *ngIf="officerForm.get('email')?.hasError('required')&&(officerForm.controls['email']?.touched||submited)" style="color: red;">Email Required</p>
+                              <p *ngIf="!officerForm.get('email')?.hasError('required')&&officerForm.controls['email']?.hasError('email')" style="color: red;">Please Enter Vaild Email </p>
+                          </div>
+                      </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Mobile Number</label>
-                                    <input formControlName="mobileNumber" type="text" class="form-control" name="fin_no">
+                                    <input formControlName="mobileNumber" maxlength="10" (keypress)="keyPressNumbers($event)" type="text" class="form-control" name="fin_no">
+                                    <p *ngIf="officerForm.get('mobileNumber')?.hasError('required')&&(officerForm.controls['mobileNumber']?.touched||submited)" style="color: red;">Mobile Number Required</p>
+                                    <p *ngIf="!officerForm.get('mobileNumber')?.hasError('required')&&officerForm.controls['mobileNumber']?.invalid" style="color: red;">Please Enter Vaild Mobile Number </p>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">Email</label>
-                                    <input formControlName="email" type="email" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">DOB</label>
-                                    <input formControlNmae="dob" type="date" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">Gender</label>
-                                    <input formControlName="gender" type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">Aadhaar Number</label>
-                                    <input formControlName="aadhaarNo" type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">PAN Number</label>
-                                    <input formControlName="panNo" type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">PAN Number</label>
+                                  <input formControlName="panNo" type="text" class="form-control" appUpperCase name="fin_no">
+                                  <p *ngIf="officerForm.get('panNo')?.hasError('required')&&(officerForm.controls['panNo']?.touched||submited)" style="color: red;">PAN Number Required</p>
+                                  <p *ngIf="!officerForm.get('panNo')?.hasError('required')&&officerForm.controls['panNo']?.invalid" style="color: red;">Please Enter Vaild PAN Number </p>
+                              </div>
+                          </div>
+
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Father / Husband Name</label>
-                                    <input formControlName="fatherName" type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Aadhaar Number</label>
+                                    <input formControlName="aadhaarNo" type="text" (keypress)="keyPressNumbers($event)" class="form-control" name="fin_no">
+                                    <p *ngIf="officerForm.get('aadhaarNo')?.hasError('required')&&(officerForm.controls['aadhaarNo']?.touched||submited)" style="color: red;">Aadhaar Number Required</p>
+                                    <p *ngIf="!officerForm.get('aadhaarNo')?.hasError('required')&&officerForm.controls['aadhaarNo']?.invalid" style="color: red;">Please Enter Vaild Aadhaar Number </p>
                                 </div>
                             </div>
-                           
-                           
-                            
+
+
+
+
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Designation</label>
+                                    <label class="control-label font-weight-600">Designation *</label>
                                     <select formControlName="designation" class="form-control model_code" name="model_code">
                                         <option value=''>Select Designation</option>
                                         <option value="Accounts Officer">Accounts Officer</option>
@@ -95,72 +110,68 @@
                                         <option value="District Officer">District Officer</option>
                                         <option value="District Collectorate">District Collectorate</option>
                                     </select>
+                                    <p *ngIf="officerForm.get('designation')?.hasError('required')&&(officerForm.controls['designation']?.touched||submited)" style="color: red;">Designation Required</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Address 1</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <label class="control-label font-weight-600">Address 1 *</label>
+                                    <input type="text" class="form-control" formControlName="address1" name="fin_no">
+                                    <p *ngIf="officerForm.get('address1')?.hasError('required')&&(officerForm.controls['address1']?.touched||submited)" style="color: red;">Address Required</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Address 2</label>
-                                    <input type="text" class="form-control" name="fin_no">
+                                    <input type="text" class="form-control" formControlName="address2" name="fin_no">
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">Address 3</label>
-                                    <input type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">State *</label>
+                                  <select class="form-control model_code" name="model_code" formControlName="state" (change)="getDistrict($event)" >
+                                      <option value=null>Select State</option>
+                                      <option *ngFor="let item of stateData" value="{{item.state}}" >{{item.state}}</option>
+                                  </select>
+                                  <p *ngIf="officerForm.get('state')?.hasError('required')&&(officerForm.controls['state']?.touched||submited)" style="color: red;">State Required</p>
+                              </div>
+                          </div>
+
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Pincode</label>
-                                    <input type="text" class="form-control" name="fin_no">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">District</label>
-                                    <select class="form-control model_code" name="model_code">
+                                    <label class="control-label font-weight-600">District *</label>
+                                    <select class="form-control model_code" formControlName="district" name="model_code" >
                                         <option value=''>Select District</option>
-                                        <option value="Lucknow">Lucknow</option>
-                                        <option value="Varanasi">Varanasi</option>
-                                        <option value="Mohanlalganj">Mohanlalganj</option>
-                                        <option value="Allahbad">Allahbad</option>
-                                        <option value="Lakhimpur">Lakhimpur</option>
-                                        <option value="Kanpur">Kanpur</option>
+                                        <option *ngFor="let item of districtData" value="{{item}}">{{item}}</option>
+
                                     </select>
+                                    <p *ngIf="officerForm.get('district')?.hasError('required')&&(officerForm.controls['district']?.touched||submited)" style="color: red;">District Required</p>
                                 </div>
                             </div>
-                            
+
+
                             <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label font-weight-600">State</label>
-                                    <select class="form-control model_code" name="model_code">
-                                        <option value=''>Select State</option>
-                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                    </select>
-                                </div>
-                            </div>
-                        
-                            
-                            
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Pincode *</label>
+                                  <input type="text" class="form-control" maxlength="6" (keypress)="keyPressNumbers($event)" formControlName="pincode" name="fin_no">
+                                  <p *ngIf="officerForm.get('pincode')?.hasError('required')&&(officerForm.controls['pincode']?.touched||submited)" style="color: red;">Pincode Required</p>
+                                  <p *ngIf="!officerForm.get('pincode')?.hasError('required')&&officerForm.get('pincode')?.invalid" style="color: red;">Please Enter Vaild Pincode </p>
+                              </div>
+                          </div>
+
+
+
                         </div>
                         <div class="clearfix"></div>
                         <hr/>
                         <div class="row">
                             <div class="col-md-12">
                                 <a class="btn m-b-xs btn-md btn-success" (click)="onSubmit()">Save</a>
-                                <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmitNew()">Save and New</a>
                                 <a class="btn m-b-xs btn-md btn-default" (click)="cancel()">Cancel</a>
                             </div>
                         </div>
-        
+
                     </form>
                 </div>
             </div>
