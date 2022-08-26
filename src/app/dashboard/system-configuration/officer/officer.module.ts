@@ -6,11 +6,13 @@ import { AddOficerComponent } from './add-oficer/add-oficer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfficerComponent } from './officer.component';
 import { ServiceModule } from 'src/app/shared/service/service.module';
+import { OfficerEditComponent } from './officer-edit/officer-edit.component';
 
 
 @NgModule({
   declarations: [OfficerComponent,
-    AddOficerComponent
+    AddOficerComponent,
+    OfficerEditComponent
   ],
   imports: [
     CommonModule,

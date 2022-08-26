@@ -25,25 +25,25 @@ submited:boolean=false
       this.httpService.getState().subscribe((data)=>{
        this.stateData=data
       })
-    this.officerForm = this.formBuilder.group({
-      firstName: ['',Validators.required],
-      middleName: [''],
-      lastName: ['',Validators.required],
-      dob: ['',Validators.required],
-      gender: ['',Validators.required],
-      fatherName: ['',Validators.required],
-      aadhaarNo: ['',[Validators.required,Validators.pattern('^[0-9]{4}[ -]?[0-9]{4}[ -]?[0-9]{4}$')]],
-      panNo: ['',[Validators.required,Validators.pattern('^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$')]],
-      mobileNumber: ['',[Validators.required,Validators.minLength(10),Validators.maxLength(10), Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-      email: ['',[Validators.required,Validators.email]],
-      designation: ['',Validators.required],
-      address1:['',Validators.required],
-      address2:[''],
-      state:['',Validators.required],
-      district:['',Validators.required],
-      pincode:['',[Validators.required,Validators.pattern('^[1-9][0-9]{5}$'),Validators.minLength(6),Validators.maxLength(6)]]
+      this.officerForm = this.formBuilder.group({
+        firstName: ['',Validators.required],
+        middleName: [''],
+        lastName: ['',Validators.required],
+        dob: ['',Validators.required],
+        gender: ['',Validators.required],
+        fatherName: ['',Validators.required],
+        aadhaarNo: ['',[Validators.required,Validators.pattern('^[0-9]{4}[ -]?[0-9]{4}[ -]?[0-9]{4}$')]],
+        panNo: ['',[Validators.required,Validators.pattern('^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$')]],
+        mobileNumber: ['',[Validators.required,Validators.minLength(10),Validators.maxLength(10), Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+        email: ['',[Validators.required,Validators.email]],
+        designation: ['',Validators.required],
+        address1:['',Validators.required],
+        address2:[''],
+        state:['',Validators.required],
+        district:['',Validators.required],
+        pincode:['',[Validators.required,Validators.pattern('^[1-9][0-9]{5}$'),Validators.minLength(6),Validators.maxLength(6)]]
 
-    })
+      })
 
   }
 
