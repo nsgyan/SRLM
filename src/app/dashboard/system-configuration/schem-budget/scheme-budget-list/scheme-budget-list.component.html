@@ -25,22 +25,30 @@
                   <thead>
                     <tr role="row">
                       <th class="text-center">S. No.</th>
-                      <th> Scheme Code</th>
-                      <th>Scheme Name</th>
-                      <th>Scheme Description</th>
+                      <th> Scheme </th>
+                      <th>Scheme Type</th>
+                      <th>Scheme Alias Name </th>
+                      <th> SPM </th>
+                      <th>Budget Code </th>
+                      <th>Limit </th>
+                      <th> Date (From & To) </th>
 
 
                       <th class="text-center">Actions</th>
                     </tr>
                   </thead>
                   <tbody >
-                    <tr *ngFor="let item of scheme;let i = index " >
+                    <tr *ngFor="let item of schemeBudget;let i = index " >
                       <td class="text-center">
                        {{i+1}}
                       </td>
-                      <td><span class="font-bold text-theme">{{item.schemeCode}}</span></td>
                       <td><span class="font-bold text-theme">{{item.schemeName}}</span></td>
-                      <td><span class="font-bold text-theme">{{item.schemeDescription}}</span></td>
+                      <td><span class="font-bold text-theme">{{item.schemeType}}</span></td>
+                      <td><span class="font-bold text-theme">{{item.schemeAliasName}}</span></td>
+                      <td><span class="font-bold text-theme">{{item.officerName}}</span></td>
+                      <td><span class="font-bold text-theme">{{item.budgetCode}}</span></td>
+                      <td><span class="font-bold text-theme">{{item.limit}}</span></td>
+                      <td><span class="font-bold text-theme">{{item.dateFrom |date : 'MMM d, y' }} ||{{item.dateTo  |date : 'MMM d, y'}}</span></td>
 
                       <td class="text-center">
                         <div class="btn-group dropdown">

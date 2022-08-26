@@ -20,14 +20,19 @@ export class SchemeBudgetListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-    scheme: any
+    schemeBudget: any
     constructor(
       private data: DataService,
       private router: Router,
       private httpService: HttpServiceService) {
-        this.httpService.getScheme().subscribe((scheme:any)=>{
-          this.scheme =scheme.schemes
-          console.log(this.scheme);
+        this.httpService.getSchemeBudget().subscribe((scheme:any)=>{
+          scheme.schemeBudget.map((item:any)=>{
+            this.httpService.getOfficerById(item.officerName).subscribe((data:any)=>{
+item.officerName=data.officerData.firstName+' '+data.officerData.middleName+''+data.officerData.lastName
+            })
+          })
+          this.schemeBudget =scheme.schemeBudget
+          console.log(this.schemeBudget);
 
           // this.dataSource = new MatTableDataSource(scheme);
           // this.dataSource.paginator = this.paginator;
@@ -54,7 +59,7 @@ export class SchemeBudgetListComponent implements OnInit {
     // }
     deleteScheme(id:any){
       Swal.fire({
-        title: 'Do you want to delete scheme?',
+        title: 'Do you want to delete Scheme Budget?',
         showDenyButton: true,
         // showCancelButton: true,
         confirmButtonText: 'Delete',
@@ -62,8 +67,8 @@ export class SchemeBudgetListComponent implements OnInit {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          this.httpService.deleteScheme(id).subscribe(Data=>{
-            Swal.fire('Scheme Deleted Successfully!', '', 'success')
+          this.httpService.deleteSchemeBudget(id).subscribe(Data=>{
+            Swal.fire('Scheme Budget Deleted Successfully!', '', 'success')
             location.reload();
           },err=>{
             location.reload();
