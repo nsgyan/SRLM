@@ -8,36 +8,29 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="wrapper-md">
             <div class="panel b-a">
                 <div class="panel-body">
-                    <form [formGroup]="designationForm" role="form" autocomplete="off">
+                    <form [formGroup]="designationForm" >
                         <div class="row">
                             <div class="col-md-12">
                                 <legend>
                                     <span class="font-weight-600">Designation Information</span>
                                 </legend>
                             </div>
-                            
+
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Designation Name</label>
-                                    <input formControlName="designationName" type="text" class="form-control" name="fin_no">
+                                    <input formControlName="designation" type="text" class="form-control" name="fin_no">
+                                    <p *ngIf="designationForm.get('designation')?.hasError('required')&&(designationForm.controls['designation']?.touched ||submited)" style="color: red;">Designation Code Required</p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label font-weight-600">Reporting To</label>
-                                    <select formControlName="reportingTo" class="form-control model_code" name="model_code">
-                                        <option value=''>Select Manager</option>
-                                            <option value="Managing Director">Managing Director</option>
-                                            <option value="Chief Financial Officer">Chief Financial Officer</option>
-                                            <option value="Accounts Officer">Accounts Officer</option>
-                                            <option value="Administration Head">Administration Head</option>
-                                            <option value="District Officer">District Officer</option>
-                                            <option value="District Collectorate">District Collectorate</option>
-                                    </select>
+                                    <input formControlName="department" type="text" class="form-control" name="fin_no">
                                 </div>
                             </div>
                         </div>

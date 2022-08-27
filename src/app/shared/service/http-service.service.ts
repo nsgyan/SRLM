@@ -124,4 +124,38 @@ return this.httpClient.get(`${Globals.route.schemeBudgetById}/${id}`)
 
     return this.httpClient.request(request);
   }
+
+  //document
+  addNewDocument(scheme: any) { return this.httpClient.post(Globals.route.addNewDocument, scheme) }
+
+
+getDocument(){
+  return this.httpClient.get(Globals.route.document)
+}
+updateDocument(id:any,formdata:any){
+  return this.httpClient.patch(`${Globals.route.document}/${id}`,formdata)
+}
+getDocumentByIdById(id:string){
+return this.httpClient.get(`${Globals.route.documentById}/${id}`)
+}
+deleteDocument(id:string){
+  return this.httpClient.delete(`${Globals.route.deleteDocument}/${id}`)
+}
+
+  //Designation
+  addNewDesignation(scheme: any) { return this.httpClient.post(Globals.route.addNewDesignation, scheme) }
+
+
+getDesignation(){
+  return this.httpClient.get(Globals.route.designation)
+}
+updateDesignation(id:any,formdata:any){
+  return this.httpClient.patch(`${Globals.route.designation}/${id}`,formdata)
+}
+getDesignationByIdById(id:string){
+return this.httpClient.get(`${Globals.route.designationById}/${id}`)
+}
+deleteDesignation(id:string){
+  return this.httpClient.delete(`${Globals.route.deleteDesignation}/${id}`)
+}
 }

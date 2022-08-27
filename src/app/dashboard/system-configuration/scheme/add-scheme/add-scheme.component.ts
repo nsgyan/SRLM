@@ -20,7 +20,7 @@ export class AddSchemeComponent implements OnInit {
     private httpService: HttpServiceService
   ) {
     this.schemeForm = this.formBuilder.group({
-      schemeCode: ['', Validators.required],
+      schemeCode: ['', [Validators.required,Validators.pattern('^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$')]],
       schemeName: ['', Validators.required],
       schemeDescription: ['', Validators.required],
 

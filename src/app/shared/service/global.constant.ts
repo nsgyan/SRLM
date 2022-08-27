@@ -39,5 +39,19 @@ export class Globals {
 
         //upload
         'upload': Globals.server + 'upload',
+
+        //document
+        'addNewDocument': Globals.server + 'systemConfiguration/document/add',
+        'document': Globals.server + 'systemConfiguration/document',
+        'documentById': Globals.server + 'systemConfiguration/documentById',
+        'deleteDocument': Globals.server + 'systemConfiguration/deleteDocument',
+
+        //designation
+
+        'addNewDesignation': Globals.server + 'systemConfiguration/designation/add',
+        'designation': Globals.server + 'systemConfiguration/designation',
+        'designationById': Globals.server + 'systemConfiguration/designationById',
+        'deleteDesignation': Globals.server + 'systemConfiguration/deleteDesignation',
+
     };
 }

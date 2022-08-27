@@ -57,7 +57,12 @@
                       <div class="col-md-4">
                           <div class="form-group">
                               <label class="control-label font-weight-600">Gender *</label>
-                              <input formControlName="gender" (keypress)="keyPresschar($event)" type="text" class="form-control" name="fin_no">
+                              <select formControlName="gender" class="form-control model_code" name="model_code">
+                                <option value=''>Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
                               <p *ngIf="officerForm.get('gender')?.hasError('required')&&(officerForm.controls['gender']?.touched||submited)" style="color: red;">Gender Required</p>
                           </div>
                       </div>
@@ -90,7 +95,7 @@
                           <div class="col-md-4">
                               <div class="form-group">
                                   <label class="control-label font-weight-600">Aadhaar Number *</label>
-                                  <input formControlName="aadhaarNo" type="text" (keypress)="keyPressNumbers($event)" class="form-control" name="fin_no">
+                                  <input formControlName="aadhaarNo" maxlength="12" type="text" (keypress)="keyPressNumbers($event)" class="form-control" name="fin_no">
                                   <p *ngIf="officerForm.get('aadhaarNo')?.hasError('required')&&(officerForm.controls['aadhaarNo']?.touched||submited)" style="color: red;">Aadhaar Number Required</p>
                                   <p *ngIf="!officerForm.get('aadhaarNo')?.hasError('required')&&officerForm.controls['aadhaarNo']?.invalid" style="color: red;">Please Enter Vaild Aadhaar Number </p>
                               </div>

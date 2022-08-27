@@ -16,10 +16,10 @@ export class AddDesignationComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private data: DataService,
     private router: Router,
-    private toster: ToasterService) { 
+    private toster: ToasterService) {
     this.designationForm= this.formBuilder.group({
-      designationName:['',Validators.required],
-      reportingTo:['']
+      designation:['',Validators.required],
+      department:['']
 
     })
   }

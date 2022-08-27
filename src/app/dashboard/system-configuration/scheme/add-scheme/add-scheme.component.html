@@ -29,6 +29,7 @@
                                     <input formControlName="schemeCode"  type="text" (focusout)="checkSchemeCode($event)" class="form-control" name="fin_no">
                                     <p *ngIf="schemeForm.get('schemeCode')?.hasError('required')&&(schemeForm.controls['schemeCode']?.touched ||submited)" style="color: red;">Scheme Code Required</p>
                                     <p *ngIf="schemeForm.get('schemeCode')?.hasError('isExist')&&!schemeForm.get('schemeCode')?.hasError('required')" style="color: red;">Scheme Code Already Exist</p>
+                                    <p *ngIf="!schemeForm.get('schemeCode')?.hasError('required')&&schemeForm.controls['schemeCode']?.invalid" style="color: red;">Please Enter Vaild Scheme  Code</p>
                                 </div>
                             </div>
                             <div class="col-md-4">

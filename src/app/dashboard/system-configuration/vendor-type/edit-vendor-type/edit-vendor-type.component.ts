@@ -50,7 +50,7 @@ this.vendorType.get('vendorTypeDescription')?.updateValueAndValidity
       this.vendorType.get('vendorTypeCode')?.updateValueAndValidity()
 
     },err=>{
-      if(!this.vendorData?.vendorTypeCode===vendorTypeCode){
+      if(this.vendorData?.vendorTypeCode!==vendorTypeCode){
       this.vendorType.get('vendorTypeCode')?.setErrors({isExist:true})}
 
 
