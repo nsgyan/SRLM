@@ -4,7 +4,7 @@
       <div class="bg-red lter b-b wrapper-md">
           <div class="row">
               <div class="col-sm-6 col-xs-12">
-                  <h3 class="m-n font-thin text-white" >Edit Designation</h3>
+                  <h3 class="m-n font-thin text-white" >Add Document</h3>
               </div>
           </div>
       </div>
@@ -12,25 +12,25 @@
       <div class="wrapper-md">
           <div class="panel b-a">
               <div class="panel-body">
-                  <form [formGroup]="designationForm" >
+                  <form [formGroup]="documentForm" >
                       <div class="row">
                           <div class="col-md-12">
                               <legend>
-                                  <span class="font-weight-600">Designation Information</span>
+                                  <span class="font-weight-600">Document Information</span>
                               </legend>
                           </div>
 
                           <div class="col-md-4">
                               <div class="form-group">
-                                  <label class="control-label font-weight-600">Designation Name</label>
-                                  <input formControlName="designation" type="text" class="form-control" name="fin_no">
-                                  <p *ngIf="designationForm.get('designation')?.hasError('required')&&(designationForm.controls['designation']?.touched ||submited)" style="color: red;">Designation Code Required</p>
+                                  <label class="control-label font-weight-600">Document Name</label>
+                                  <input formControlName="documentName" type="text" class="form-control" name="fin_no">
+                                  <p *ngIf="documentForm.get('documentName')?.hasError('required')&&(documentForm.controls['documentName']?.touched ||submited)" style="color: red;">Document Name Required</p>
                               </div>
                           </div>
                           <div class="col-md-4">
                               <div class="form-group">
-                                  <label class="control-label font-weight-600">Department </label>
-                                  <input formControlName="department" type="text" class="form-control" name="fin_no">
+                                  <label class="control-label font-weight-600">Document Description </label>
+                                  <input formControlName="documentDescription" type="text" class="form-control" name="fin_no">
                               </div>
                           </div>
                       </div>
@@ -38,8 +38,8 @@
                       <hr/>
                       <div class="row">
                           <div class="col-md-12">
-                              <a class="btn m-b-xs btn-md btn-success"  (click)="onSubmit()">Update</a>
-                              <!-- <a class="btn m-b-xs btn-md btn-primary"  (click)="onSubmitSave()">Save and New</a> -->
+                              <a class="btn m-b-xs btn-md btn-success"  (click)="onSubmit()">Save</a>
+                              <a class="btn m-b-xs btn-md btn-primary"  (click)="onSubmitSave()">Save and New</a>
                               <a class="btn m-b-xs btn-md btn-default"  (click)="cancel()">Cancel</a>
                           </div>
                       </div>

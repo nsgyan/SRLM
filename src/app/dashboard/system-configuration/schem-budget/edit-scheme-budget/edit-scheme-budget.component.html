@@ -69,7 +69,7 @@
                               <p *ngIf="schemeBudgetForm.get('schemeConditions')?.hasError('required')&&(schemeBudgetForm.controls['schemeConditions']?.touched||submited)" style="color: red;">Scheme Conditions (RTE - Unicode) Required</p>
                           </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label font-weight-600">verification Sample Document (Upload) *</label>
                           <input *ngIf="!sampleVerificationDocument" type="file" class="form-control"   (change)="uploads($event)">
@@ -81,7 +81,7 @@
                             <p *ngIf="schemeBudgetForm.get('sampleVerificationDocument')?.hasError('required')&&(schemeBudgetForm.controls['sampleVerificationDocument']?.touched||submited)" style="color: red;">verification Sample Document Required</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <mat-form-field appearance="fill">
                           <mat-label>Document List *</mat-label>
@@ -95,7 +95,7 @@
                       </div>
                     </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label font-weight-600">SPM Name *
                             </label>
@@ -110,7 +110,7 @@
 
 
 
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label font-weight-600">Vendor Type *</label>
                                   <select class="form-control model_code" name="model_code" formControlName="vendorType"  >
@@ -124,14 +124,14 @@
 
 
 
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label font-weight-600">Budget Code *</label>
                                   <input type="text" class="form-control" formControlName="budgetCode" name="fin_no">
                                   <p *ngIf="schemeBudgetForm.get('budgetCode')?.hasError('required')&&(schemeBudgetForm.controls['budgetCode']?.touched||submited)" style="color: red;">Budget Code Required</p>
                               </div>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label font-weight-600">Budget Description *</label>
                                   <input type="text" class="form-control" formControlName="budgetDescription" name="fin_no">
