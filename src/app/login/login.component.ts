@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
   login(){
 
-if(this.loginForm.valid){
+if(this.loginForm.valid&&this.captcha){
 this.httpService.login({userName:this.loginForm.value.userName,
 password:this.loginForm.value.password}).subscribe((data:any)=>{
   Swal.fire('',data.message, 'success')
@@ -42,14 +42,14 @@ password:this.loginForm.value.password}).subscribe((data:any)=>{
 this.routes.navigate(['dashboard'])
 
 })}
-// else if(!this.captcha){
-//   this.submited=true
-//   Swal.fire(
-//     'Error!',
-//     'Please verify that you are not a robot.',
-//     'error'
-//   )
-// }
+else if(!this.captcha){
+  // this.submited=true
+  Swal.fire(
+    'Error!',
+    'Please verify that you are not a robot.',
+    'error'
+  )
+}
 else{
   this.submited=true
   Swal.fire(

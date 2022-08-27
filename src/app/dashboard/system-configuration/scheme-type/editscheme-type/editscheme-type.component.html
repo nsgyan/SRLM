@@ -27,8 +27,8 @@
                               <div class="form-group">
                                   <label class="control-label font-weight-600">Scheme Code</label>
                                   <input formControlName="schemeType"  type="text" (focusout)="checkschemeType($event)" class="form-control" name="fin_no">
-                                  <p *ngIf="schemeForm.get('schemeType')?.hasError('required')&&(schemeForm.controls['schemeType']?.touched ||submited)" style="color: red;">Scheme Code Required</p>
-                                  <p *ngIf="schemeForm.get('schemeType')?.hasError('isExist')&&!schemeForm.get('schemeType')?.hasError('required')" style="color: red;">Scheme Code Already Exist</p>
+                                  <p *ngIf="schemeForm.get('schemeType')?.hasError('required')&&(schemeForm.controls['schemeType']?.touched ||submited)" style="color: red;">Scheme Type Required</p>
+                                  <p *ngIf="schemeForm.get('schemeType')?.hasError('isExist')&&!schemeForm.get('schemeType')?.hasError('required')" style="color: red;">Scheme Type Already Exist</p>
                               </div>
                           </div>
                           <!-- <div class="col-md-4">

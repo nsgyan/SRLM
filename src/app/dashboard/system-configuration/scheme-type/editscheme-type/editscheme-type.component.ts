@@ -55,7 +55,8 @@ this.schemeData=data.schemeType
       this.schemeForm.get('schemeType')?.updateValueAndValidity()
 
     },err=>{
-      this.schemeForm.get('schemeType')?.setErrors({isExist:true})
+      if(!this.schemeData?.schemeType===schemeType){
+      this.schemeForm.get('schemeType')?.setErrors({isExist:true})}
 
 
     })

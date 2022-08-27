@@ -42,6 +42,20 @@ export class AddVendorTypeComponent implements OnInit {
   //   this.router.navigate(['/dashboard/system-configuration/vendorType'])
 
   // }
+  checkVendorType(event:any){
+    const vendorTypeCode = event.target.value ? event.target.value.toUpperCase() : this.vendorType.get('vendorTypeCode')?.value
+    this.httpService.checkVendorTypeCode({vendorTypeCode:vendorTypeCode}).subscribe((data:any)=>{
+      this.vendorType.get('vendorTypeCode')?.clearValidators()
+      this.vendorType.get('vendorTypeCode')?.setValidators(Validators.required)
+      this.vendorType.get('vendorTypeCode')?.updateValueAndValidity()
+
+    },err=>{
+      this.vendorType.get('vendorTypeCode')?.setErrors({isExist:true})
+
+
+    })
+  }
+
 
   onSubmit() {
 

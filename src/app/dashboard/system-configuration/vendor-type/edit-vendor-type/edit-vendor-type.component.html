@@ -22,8 +22,9 @@
                           <div class="col-md-12">
                               <div class="form-group">
                                   <label class="control-label font-weight-600">Vendor Type Code</label>
-                                  <input formControlName="vendorTypeCode" type="text" class="form-control" name="fin_no">
+                                  <input formControlName="vendorTypeCode" type="text" (focusout)="checkVendorType($event)" class="form-control" name="fin_no">
                                   <p *ngIf="vendorType.get('vendorTypeCode')?.hasError('required')&&(vendorType.controls['vendorTypeCode']?.touched ||submited)" style="color: red;">Vendor Type Code Required</p>
+                                  <p *ngIf="vendorType.get('vendorTypeCode')?.hasError('isExist')&&!vendorType.get('vendorTypeCode')?.hasError('required')" style="color: red;">Vendor Type Code Already Exist</p>
                               </div>
                           </div>
                           <div class="col-md-12">

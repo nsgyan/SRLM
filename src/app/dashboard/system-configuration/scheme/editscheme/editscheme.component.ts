@@ -58,9 +58,9 @@ this.schemeData=data.schemeData
       this.schemeForm.get('schemeCode')?.updateValueAndValidity()
 
     },err=>{
-      this.schemeForm.get('schemeCode')?.setErrors({isExist:true})
-      // this.schemeForm.get('schemeCode')?.updateValueAndValidity()
-      console.log( this.schemeForm.get('schemeCode')?.valid)
+      if(!this.schemeData?.schemeCode===schemeCode){
+      this.schemeForm.get('schemeCode')?.setErrors({isExist:true})}
+
     })
   }
 
