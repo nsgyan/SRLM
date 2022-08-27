@@ -81,7 +81,7 @@ item.officerName=data.officerData.firstName+' '+data.officerData.middleName+''+d
       })
     }
     editScheme(id:string){
-   let url='/dashboard/system-configuration/scheme/edit/'+id
+   let url='/dashboard/system-configuration/schemeBudget/edit/'+id
    console.log(url)
       this.router.navigate([url])
     }

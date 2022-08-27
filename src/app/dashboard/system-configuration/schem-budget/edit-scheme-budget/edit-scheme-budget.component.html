@@ -1,1 +1,184 @@
-<p>edit-scheme-budget works!</p>
+
+ <div id="content" class="app-content" role="main">
+  <div class="app-content-body ">
+      <div class="bg-red lter b-b wrapper-md">
+          <div class="row">
+              <div class="col-sm-6 col-xs-12">
+                  <h3 class="m-n font-thin text-white">Add Scheme Budget</h3>
+              </div>
+          </div>
+      </div>
+
+      <div class="wrapper-md">
+          <div class="panel b-a">
+              <div class="panel-body">
+                  <form role="form" [formGroup]="schemeBudgetForm" autocomplete="off">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <legend>
+                                  <span class="font-weight-600">Scheme Budget Information</span>
+                              </legend>
+                          </div>
+
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Scheme code *</label>
+                                  <select class="form-control model_code" name="model_code" formControlName="schemeCode" (change)="getSchemeName($event)" >
+                                    <option *ngFor="let item of schemeData" value="{{item.schemeCode}}" >{{item.schemeCode}}</option>
+                                </select>
+                                  <p *ngIf="schemeBudgetForm.get('schemeCode')?.hasError('required')&&(schemeBudgetForm.controls['schemeCode']?.touched||submited)" style="color: red;">Scheme code Required</p>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Scheme Name</label>
+                                  <input formControlName="schemeName" type="text"  class="form-control" name="fin_no" readonly>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label font-weight-600">Scheme Type *</label>
+                                <select class="form-control model_code" name="model_code" formControlName="schemeType"  >
+
+                                  <option *ngFor="let item of schemeTypeData" value="{{item.schemeType}}" >{{item.schemeType}}</option>
+                              </select>
+                                <p *ngIf="schemeBudgetForm.get('schemeType')?.hasError('required')&&(schemeBudgetForm.controls['schemeType']?.touched||submited)" style="color: red;">Scheme Type code Required</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group">
+                              <label class="control-label font-weight-600">Scheme Alias Name * </label>
+                              <input formControlName="schemeAliasName"  type="text" class="form-control" name="fin_no">
+                              <p *ngIf="schemeBudgetForm.get('schemeAliasName')?.hasError('required')&&(schemeBudgetForm.controls['schemeAliasName']?.touched||submited)" style="color: red;">Scheme Alias Name Required</p>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label font-weight-600">Scheme Alias Name Description * </label>
+                            <input formControlName="schemeAliasNameDescription"  type="text" class="form-control" name="fin_no">
+                            <p *ngIf="schemeBudgetForm.get('schemeAliasNameDescription')?.hasError('required')&&(schemeBudgetForm.controls['schemeAliasNameDescription']?.touched||submited)" style="color: red;">Scheme Alias Name Description Required</p>
+                        </div>
+                    </div>
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label class="control-label font-weight-600">Scheme Conditions (RTE - Unicode) *</label>
+                              <ckeditor formControlName="schemeConditions" ></ckeditor>
+
+                              <!-- <input formControlName="gender" (keypress)="keyPresschar($event)" type="text" class="form-control" name="fin_no"> -->
+                              <p *ngIf="schemeBudgetForm.get('schemeConditions')?.hasError('required')&&(schemeBudgetForm.controls['schemeConditions']?.touched||submited)" style="color: red;">Scheme Conditions (RTE - Unicode) Required</p>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label font-weight-600">verification Sample Document (Upload) *</label>
+                          <input *ngIf="!sampleVerificationDocument" type="file" class="form-control"   (change)="uploads($event)">
+                          <br>
+                          <a *ngIf="sampleVerificationDocument" href="{{sampleVerificationDocument}}"
+                          target="_blank">view Document</a>
+                      <a *ngIf="sampleVerificationDocument"
+                          (click)="deletesampleVerificationDocument()"><i class="fa fa-trash"></i></a>
+                            <p *ngIf="schemeBudgetForm.get('sampleVerificationDocument')?.hasError('required')&&(schemeBudgetForm.controls['sampleVerificationDocument']?.touched||submited)" style="color: red;">verification Sample Document Required</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Document List *</mat-label>
+                          <mat-select formControlName="documentList" multiple>
+                            <mat-option  value="PAN Document">PAN Document</mat-option>
+                            <mat-option  value="GST Document">GST Document</mat-option>
+                            <mat-option  value="Aadhaar Document">Aadhaar Document</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <p *ngIf="schemeBudgetForm.get('documentList')?.hasError('required')&&(schemeBudgetForm.controls['documentList']?.touched||submited)" style="color: red;">Document List Required</p>
+                      </div>
+                    </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label font-weight-600">SPM Name *
+                            </label>
+                            <select class="form-control model_code" name="model_code" formControlName="officerName"  >
+                              <option *ngFor="let item of officer" value="{{item._id}}" >{{item.name}}</option>
+                          </select>
+                            <!-- <input formControlName="officerName" type="officerName" class="form-control" name="fin_no"> -->
+                            <p *ngIf="schemeBudgetForm.get('officerName')?.hasError('required')&&(schemeBudgetForm.controls['officerName']?.touched||submited)" style="color: red;">Officer Name Required</p>
+                        </div>
+                    </div>
+
+
+
+
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Vendor Type *</label>
+                                  <select class="form-control model_code" name="model_code" formControlName="vendorType"  >
+                                    <option *ngFor="let item of vendorType" value="{{item.vendorTypeCode}}" >{{item.vendorTypeCode}}</option>
+                                </select>
+                                  <p *ngIf="schemeBudgetForm.get('vendorType')?.hasError('required')&&(schemeBudgetForm.controls['vendorType']?.touched||submited)" style="color: red;">Vendor Type Required</p>
+                              </div>
+                          </div>
+
+
+
+
+
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Budget Code *</label>
+                                  <input type="text" class="form-control" formControlName="budgetCode" name="fin_no">
+                                  <p *ngIf="schemeBudgetForm.get('budgetCode')?.hasError('required')&&(schemeBudgetForm.controls['budgetCode']?.touched||submited)" style="color: red;">Budget Code Required</p>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Budget Description *</label>
+                                  <input type="text" class="form-control" formControlName="budgetDescription" name="fin_no">
+                                  <p *ngIf="schemeBudgetForm.get('budgetDescription')?.hasError('required')&&(schemeBudgetForm.controls['budgetDescription']?.touched||submited)" style="color: red;">Budget Description Required</p>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label font-weight-600">Limit (if any) </label>
+                               <input type="text" class="form-control" formControlName="limit" name="fin_no">
+
+                            </div>
+                        </div>
+
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Date (From) *</label>
+                                  <input type="date" class="form-control"   formControlName="dateFrom" name="fin_no">
+                                  <p *ngIf="schemeBudgetForm.get('dateFrom')?.hasError('required')&&(schemeBudgetForm.controls['dateFrom']?.touched||submited)" style="color: red;">Date From Required</p>
+                              </div>
+                          </div>
+
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label font-weight-600">Date (To) *</label>
+                                <input type="date" class="form-control"   formControlName="dateTo" name="fin_no">
+                                <p *ngIf="schemeBudgetForm.get('dateTo')?.hasError('required')&&(schemeBudgetForm.controls['dateTo']?.touched||submited)" style="color: red;">Date To Required</p>
+                            </div>
+                        </div>
+
+
+
+                      </div>
+                      <div class="clearfix"></div>
+                      <hr/>
+                      <div class="row">
+                          <div class="col-md-12">
+                              <a class="btn m-b-xs btn-md btn-success" (click)="onSubmit()">Update</a>
+                              <!-- <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmitNew()">Save and New</a> -->
+                              <a class="btn m-b-xs btn-md btn-default" (click)="cancel()">Cancel</a>
+                          </div>
+                      </div>
+
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

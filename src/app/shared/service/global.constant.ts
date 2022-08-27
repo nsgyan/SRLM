@@ -34,7 +34,7 @@ export class Globals {
         //schemeBudget
         'addNewSchemeBudget': Globals.server + 'systemConfiguration/schemeBudget/add',
         'schemeBudget': Globals.server + 'systemConfiguration/schemeBudget',
-        'schemeBudgetById': Globals.server + 'systemConfiguration/schemeBudget',
+        'schemeBudgetById': Globals.server + 'systemConfiguration/schemeBudgetById',
         'deleteSchemeBudget': Globals.server + 'systemConfiguration/deleteSchemeBudget',
 
         //upload
