@@ -41,7 +41,13 @@ password:this.loginForm.value.password}).subscribe((data:any)=>{
   this.localStorage.set('token', data.token)
 this.routes.navigate(['dashboard'])
 
-})}
+},(err=>{
+  Swal.fire(
+    'Error!',
+    'Invalid username and password.',
+    'error'
+  )
+}))}
 else if(!this.captcha){
   // this.submited=true
   Swal.fire(

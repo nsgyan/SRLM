@@ -23,6 +23,9 @@ export class AddSchemeComponent implements OnInit {
       schemeCode: ['', [Validators.required,Validators.pattern('^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$')]],
       schemeName: ['', Validators.required],
       schemeDescription: ['', Validators.required],
+      goiCode:['',Validators.required],
+      grandNumber:['',Validators.required],
+      budgetHead:['',Validators.required]
 
 
     })
@@ -55,6 +58,9 @@ export class AddSchemeComponent implements OnInit {
       schemeCode: this.schemeForm.value.schemeCode,
       schemeName: this.schemeForm.value.schemeName,
       schemeDescription: this.schemeForm.value.schemeDescription,
+      goiCode: this.schemeForm.value.goiCode,
+      grandNumber: this.schemeForm.value.grandNumber,
+      budgetHead: this.schemeForm.value.budgetHead,
 
 
     }).subscribe((item:any) => {
@@ -98,6 +104,9 @@ export class AddSchemeComponent implements OnInit {
        schemeCode: this.schemeForm.value.schemeCode,
        schemeName: this.schemeForm.value.schemeName,
        schemeDescription: this.schemeForm.value.schemeDescription,
+       goiCode: this.schemeForm.value.goiCode,
+       grandNumber: this.schemeForm.value.grandNumber,
+       budgetHead: this.schemeForm.value.budgetHead,
 
 
      }).subscribe((item:any) => {

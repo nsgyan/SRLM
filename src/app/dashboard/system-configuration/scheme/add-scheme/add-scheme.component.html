@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="control-label font-weight-600">Scheme Code</label>
+                                    <label class="control-label font-weight-600">State Scheme Code</label>
                                     <input formControlName="schemeCode"  type="text" (focusout)="checkSchemeCode($event)" class="form-control" name="fin_no">
                                     <p *ngIf="schemeForm.get('schemeCode')?.hasError('required')&&(schemeForm.controls['schemeCode']?.touched ||submited)" style="color: red;">Scheme Code Required</p>
                                     <p *ngIf="schemeForm.get('schemeCode')?.hasError('isExist')&&!schemeForm.get('schemeCode')?.hasError('required')" style="color: red;">Scheme Code Already Exist</p>
@@ -46,38 +46,27 @@
                                     <p *ngIf="schemeForm.get('schemeDescription')?.hasError('required')&&(schemeForm.controls['schemeDescription']?.touched ||submited)" style="color: red;">Scheme Description Required</p>
                                 </div>
                             </div>
-                            <!-- <div formGroupName="bankDetails">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label font-weight-600">Account No</label>
-                                        <input formControlName="accountNo" type="text" class="form-control" name="fin_no">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label font-weight-600">Agency Name As Per Bank</label>
-                                        <input formControlName="agencyName" type="text" class="form-control" name="fin_no">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label font-weight-600">Bank Name</label>
-                                        <input formControlName="bankName"  type="text" class="form-control" name="fin_no">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label font-weight-600">Branch Name</label>
-                                        <input formControlName="branchName" type="text" class="form-control" name="fin_no">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label font-weight-600">Branch Address</label>
-                                        <input formControlName="branchAddress" type="text" class="form-control" name="fin_no">
-                                    </div>
-                                </div>
-                            </div> -->
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">GoI Code</label>
+                                  <input formControlName="goiCode"  type="text"  class="form-control" name="fin_no">
+                                  <p *ngIf="schemeForm.get('goiCode')?.hasError('required')&&(schemeForm.controls['goiCode']?.touched ||submited)" style="color: red;">Scheme Code Required</p>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Grand Number</label>
+                                  <input formControlName="grandNumber" type="text" class="form-control" name="fin_no">
+                                  <p *ngIf="schemeForm.get('grandNumber')?.hasError('required')&&(schemeForm.controls['grandNumber']?.touched ||submited)" style="color: red;">Grand Number Required</p>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label class="control-label font-weight-600">Budget Head</label>
+                                  <input formControlName="budgetHead" type="text" class="form-control" name="fin_no">
+                                  <p *ngIf="schemeForm.get('budgetHead')?.hasError('required')&&(schemeForm.controls['budgetHead']?.touched ||submited)" style="color: red;">Budget Head Required</p>
+                              </div>
+                          </div>
 
 
 

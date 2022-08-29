@@ -26,6 +26,9 @@ export class EditschemeComponent implements OnInit {
       schemeCode: [this.schemeData?.schemeCode ?this.schemeData?.schemeCode :'', Validators.required],
       schemeName: ['', Validators.required],
       schemeDescription: ['', Validators.required],
+      goiCode:['',Validators.required],
+      grandNumber:['',Validators.required],
+      budgetHead:['',Validators.required]
     })
     this.id=this.activeRoute.snapshot.paramMap.get('Id')
     this.httpService.getSchemeById(this.id).subscribe((data:any)=>{
@@ -33,11 +36,12 @@ console.log(data.schemeData)
 this.schemeData=data.schemeData
 // console.log(this.schemeData,'scheme data')
     this.schemeForm.get('schemeCode')?.setValue(this.schemeData?.schemeCode)
-    this.schemeForm.get('schemeCode')?.updateValueAndValidity()
+    this.schemeForm.get('goiCode')?.setValue(this.schemeData?.goiCode)
     this.schemeForm.get('schemeName')?.setValue(this.schemeData?.schemeName)
-    this.schemeForm.get('schemeName')?.updateValueAndValidity()
+    this.schemeForm.get('grandNumber')?.setValue(this.schemeData?.grandNumber)
     this.schemeForm.get('schemeDescription')?.setValue(this.schemeData?.schemeDescription)
-    this.schemeForm.get('schemeDescription')?.updateValueAndValidity()
+    this.schemeForm.get('budgetHead')?.setValue(this.schemeData?.budgetHead)
+    this.schemeForm.updateValueAndValidity()
     })
 
 
@@ -74,6 +78,9 @@ this.schemeData=data.schemeData
       schemeCode: this.schemeForm.value.schemeCode,
       schemeName: this.schemeForm.value.schemeName,
       schemeDescription: this.schemeForm.value.schemeDescription,
+      goiCode: this.schemeForm.value.goiCode,
+      grandNumber: this.schemeForm.value.grandNumber,
+      budgetHead: this.schemeForm.value.budgetHead,
 
 
     }).subscribe((item:any) => {
@@ -117,6 +124,9 @@ this.schemeData=data.schemeData
        schemeCode: this.schemeForm.value.schemeCode,
        schemeName: this.schemeForm.value.schemeName,
        schemeDescription: this.schemeForm.value.schemeDescription,
+       goiCode: this.schemeForm.value.goiCode,
+       grandNumber: this.schemeForm.value.grandNumber,
+       budgetHead: this.schemeForm.value.budgetHead,
 
 
      }).subscribe((item:any) => {
